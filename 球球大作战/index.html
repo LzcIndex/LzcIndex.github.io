@@ -12,9 +12,8 @@
         }
 
         .stage {
-            width: 360px;
-            height: 640px;
-            margin: 0 auto;
+            height: 100vh;
+            text-align: center;
         }
     </style>
 </head>
@@ -58,13 +57,15 @@
             color: randomColor()
         }
 
+        var windowW = window.innerWidth <= 640?  window.innerWidth : 640  ;
+      
         var game = {
-            stageW: 360,
-            stageH: 640,
+            stageW: windowW,
+            stageH: window.innerHeight,
             score: 0,
             center: {
-                x: 360 / 2,
-                y: 640 / 2
+                x: windowW / 2,
+                y: window.innerHeight / 2
             },
             start: false
         }
