@@ -1,0 +1,132 @@
+.mask-layout(){
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    background-image: linear-gradient(120deg, rgba(50, 150, 100, 0.4), rgba(0, 0, 100, 0)),
+        linear-gradient(240deg, rgba(150, 50, 50, 0.4), rgba(0, 0, 200, 0));
+    padding: 20px;
+    perspective: 1500px;
+    .stage {
+        width: 400px;
+        height: 600px;
+        perspective: 1500px;
+       transform-origin: 50% 50% 150px;
+        background-size: cover;
+        margin: 0 auto;
+        position: relative;
+        transform-style: preserve-3d;
+        border-radius: 15px;
+        transition: all .3s;
+        &::after {
+           .mask-layout;
+            background: rgb(65,65,65);
+            z-index: -1;
+            transform: translateZ(-20px);
+            box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.8);
+        }
+        .mask{
+            .mask-layout;
+            display:flex;
+            flex-direction: column;
+            background: url('../600x600.jpg') no-repeat center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            h3{
+                font-size: 36px;
+                
+            }
+            p{
+                font-size: 24px;
+                margin: 30px 0;
+            }
+            .chart{
+                display: flex;
+                justify-content: center;
+                transform-style: preserve-3d;
+               
+                span{
+                    position: relative;
+                    width: 30px;
+                    height: 30px;
+                    display: block;
+                    margin: 15px;
+                    transform: rotate(-45deg);
+                    text-align: center;
+                    line-height: 30px;
+                    transform-style: preserve-3d;
+                    i.top{
+                        .chart-side;
+                        text-align: center;
+                        color: black;
+                        background: white;
+                    }
+                    i.left{
+                        .chart-side;
+                        width: 0px;
+                       
+                        transform: rotateY(-90deg);
+                       
+                    }
+                    i.front{
+                        .chart-side;
+                        width: 0px;
+                        transform: rotateY(-90deg) rotateX(90deg)
+                    }
+                }
+                .chart-side{
+                    content: '';
+                    display: block;
+                    box-sizing: border-box;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transform-origin: left bottom;
+                    transition: all 1s;
+                    text-align: right;
+                    color: transparent;
+                    background: linear-gradient(to left, rgb(212, 212, 212), lightblue);
+                }
+            }
+        }
+    }
+}
+.stage.active{
+    transform: rotateX(60deg);
+    .mask{
+        h3{
+            transform: translateZ(20px);
+        }
+        p{
+            transform: translateZ(20px);
+        }
+        .chart{
+            span{
+                i.left{
+                    color: black;
+                    padding-right: 20px;
+                }
+                i.front{
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+
+

@@ -1,0 +1,50 @@
+html,body{
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.scene(){
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-size: cover;
+    background-position: center 0px;
+    background-repeat: repeat-y;
+    position: relative;
+}
+.clear(){
+    content: '';
+    display: block;
+    clear: both;
+}
+.stage{
+    .clear;
+    width: 200%;
+    height: 100%;
+    background-color: red;
+    margin-left: -100%;
+    transition: all .3s;
+    .game-start{
+        .scene;
+        background-image: url('../images/background-start.png');
+        button.start{
+            position: absolute;
+            left: 50%;
+            bottom: 20%;
+            width: 30%;
+            transform: translateX(50%);
+            line-height: 30px;
+            border-radius: 30px;
+            background: #c4c9ca;
+            border: 1px solid black;
+            outline: none;
+        }
+    }
+    .game{
+        .scene;
+        background-image:url('../images/background-game.png');
+        img{
+            position: absolute;
+        }
+    }
+}

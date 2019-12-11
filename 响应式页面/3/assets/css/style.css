@@ -1,0 +1,654 @@
+ul,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+body,
+a,
+span {
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+}
+nav.navbar {
+  margin-bottom: 0px;
+  padding: 10px 0;
+}
+nav.navbar .navbar-header button.navbar-toggle {
+  border: none;
+}
+nav.navbar .navbar-header .navbar-brand {
+  font-size: 36px;
+  font-family: "Srisakdi", cursive;
+  color: #fc427b;
+  font-weight: bold;
+}
+nav.navbar .navbar-collapse ul.navbar-right li {
+  margin: 0 15px;
+  background: none;
+}
+nav.navbar .navbar-collapse ul.navbar-right li.open a {
+  background: none;
+}
+nav.navbar .navbar-collapse ul.navbar-right li:hover a {
+  background: none;
+}
+nav.navbar .navbar-collapse ul.navbar-right li a {
+  padding-left: 0;
+  padding-right: 0;
+  background: none;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+  transition: all 0.3s;
+}
+nav.navbar .navbar-collapse ul.navbar-right li a.active {
+  color: #fc427b;
+}
+nav.navbar .navbar-collapse ul.navbar-right li a:hover {
+  color: #fc427b;
+}
+nav.navbar .navbar-collapse ul.navbar-right li ul.dropdown-menu {
+  background: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+nav.navbar .navbar-collapse ul.navbar-right li ul.dropdown-menu li {
+  margin: 0;
+}
+nav.navbar .navbar-collapse ul.navbar-right li ul.dropdown-menu li a {
+  color: #333;
+}
+section.serives {
+  background: #fc427b;
+  padding: 100px 0;
+}
+section.serives div.title {
+  color: white;
+  text-align: center;
+}
+section.serives div.title span {
+  border: 2px solid white;
+  padding: 30px;
+  border-radius: 50%;
+  font-size: 32px;
+}
+section.serives div.title h5 {
+  font-weight: 600;
+  font-size: 24px;
+  margin: 50px 0 20px 0;
+}
+section.serives div.title p {
+  font-weight: 100;
+  font-size: 16px;
+}
+section.welcome .title {
+  padding-top: 50px;
+}
+section.welcome .title h3 {
+  font-size: 38px;
+  font-weight: 100;
+}
+section.welcome .title h5 {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+}
+section.welcome dl span {
+  border: 2px solid white;
+  padding: 30px;
+  border-radius: 50%;
+  font-size: 32px;
+  background: #fc427b;
+  color: white;
+}
+section.welcome dl dt {
+  color: #333333;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 2em;
+}
+section.welcome dl dd {
+  color: #999999;
+  font-size: 16px;
+  line-height: 2em;
+}
+section.banner ol.carousel-indicators li {
+  width: 16px;
+  height: 16px;
+  background: #fc427b;
+  border: 4px solid white;
+  margin: 0 5px;
+}
+section.banner ol.carousel-indicators li.active {
+  background: white;
+}
+section.banner ol.carousel-indicators li:hover {
+  background: white;
+}
+section.banner .carousel-inner .item {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+}
+section.banner .carousel-inner .item:nth-child(1) {
+  background-image: url("../images/2.jpg");
+}
+section.banner .carousel-inner .item:nth-child(2) {
+  background-image: url("../images/1.jpg");
+}
+section.banner .carousel-inner .item:nth-child(3) {
+  background-image: url("../images/4.jpg");
+}
+section.banner .carousel-inner .item .caption {
+  padding-top: 100px;
+  text-align: right;
+  color: white;
+}
+section.banner .carousel-inner .item .caption h5 {
+  font-size: 16px;
+  color: #333;
+  font-weight: normal;
+  line-height: 2em;
+}
+section.banner .carousel-inner .item .caption h3 {
+  font-size: 24px;
+  font-weight: bolder;
+  text-shadow: 2px 5px 3px rgba(0, 0, 0, 0.06);
+  line-height: 1.5em;
+}
+section.banner .carousel-inner .item .caption a.btn {
+  margin-top: 20px;
+  background: #fc427b;
+  border: 2px solid white;
+  color: white;
+  font-weight: normal;
+  font-size: 14px;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  padding: 15px 30px;
+}
+section.banner .carousel-inner .item .caption a.btn:hover {
+  color: #333;
+  background: white;
+}
+section.blog div.container {
+  padding: 96px 15px 48px 15px;
+}
+section.blog div.container .title {
+  text-align: center;
+  padding-bottom: 48px;
+}
+section.blog div.container .title h3 {
+  font-size: 30px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
+}
+section.blog div.container .title p {
+  color: #999;
+  letter-spacing: 1px;
+  line-height: 1.9;
+}
+section.blog div.container .content .img {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+section.blog div.container .content .img h3 {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 36px;
+  color: #ffffff;
+  background: #38d2fe;
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: 600;
+  padding: 10px 25px;
+}
+section.blog div.container .content .img h3 span {
+  display: block;
+  font-weight: 100;
+  font-size: 16px;
+}
+section.blog div.container .content h4 {
+  font-size: 23px;
+  color: #343a40;
+  padding-top: 24px;
+  margin-bottom: 8px;
+}
+section.blog div.container .content ul::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.blog div.container .content ul li {
+  float: left;
+}
+section.blog div.container .content ul li:nth-child(2) {
+  margin: 0 16px;
+}
+section.blog div.container .content ul li a {
+  color: #999;
+  letter-spacing: 1px;
+}
+section.blog div.container .content ul li a span {
+  color: #fc427b;
+  margin-right: 4px;
+}
+section.blog div.container .content p {
+  margin-top: 16px;
+  font-size: 15px;
+  color: #999;
+  letter-spacing: 1px;
+  line-height: 1.9;
+  padding-bottom: 48px;
+}
+section.middle {
+  padding: 48px 0;
+  height: 600px;
+  background: url('../images/bg2.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  margin-bottom: 48px;
+}
+section.middle .content {
+  padding: 48px 0;
+}
+section.middle .content .text span {
+  font-size: 26px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.35);
+}
+section.middle .content .text h3 {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 32px;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  margin: 8px 0 16px 0;
+}
+section.middle .content .text p {
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #eeeeee;
+  line-height: 1.9;
+}
+section.gallery {
+  padding: 48px 0;
+}
+section.gallery .container {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+section.gallery .container .title {
+  text-align: center;
+  padding-bottom: 48px;
+}
+section.gallery .container .title h3 {
+  font-size: 30px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 10px;
+}
+section.gallery .container .title p {
+  color: #999;
+  letter-spacing: 1px;
+  line-height: 1.9;
+}
+section.gallery .container .row div[class^=col] {
+  padding: 5px;
+}
+section.gallery .container .row div[class^=col] img {
+  border-radius: 5px;
+  margin: 0 auto;
+}
+#myModal .modal-body img {
+  width: 100%;
+}
+section.newsletter {
+  padding: 48px 0;
+  background: url('../images/bg3.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+section.newsletter .letter {
+  padding: 48px 15px;
+}
+section.newsletter .letter h3 {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 30px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 10px;
+}
+section.newsletter .letter p {
+  text-align: center;
+  color: #E0E0E0;
+  letter-spacing: 1px;
+  line-height: 1.9;
+  margin-bottom: 48px;
+}
+section.newsletter .letter form {
+  text-align: center;
+}
+section.newsletter .letter form input {
+  font-size: 15px;
+  color: #495057;
+}
+section.newsletter .letter form .form-control {
+  height: auto;
+  padding: 15px;
+}
+section.newsletter .letter form .btn-submit {
+  font-size: 15px;
+  background: #38d2fe;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  letter-spacing: 2px;
+}
+section.contact {
+  padding: 48px 0 96px 0;
+}
+section.contact .us h3 {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 30px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 10px;
+}
+section.contact .us p {
+  text-align: center;
+  color: #999;
+  letter-spacing: 1px;
+  line-height: 1.9;
+  margin-bottom: 48px;
+}
+section.contact .address {
+  padding: 40px;
+  background: #fff;
+  box-shadow: 0px 2px 13px -1px rgba(0, 0, 0, 0.15);
+}
+section.contact .address h4 {
+  font-weight: 400;
+  font-size: 23px;
+  color: #38defe;
+  letter-spacing: 1px;
+  margin-bottom: 1em;
+}
+section.contact .address p {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #999;
+  font-family: 'Sintony', sans-serif;
+  line-height: 1.9;
+}
+section.contact .address p a {
+  transition: all 0.3s;
+  color: #999;
+}
+section.contact .address p a:hover {
+  text-decoration: none;
+  color: black;
+}
+section.contact .phone {
+  margin: 2em 0;
+}
+section.contact .touch {
+  padding: 40px;
+  margin-top: 40px;
+  background: #fff;
+  box-shadow: 0px 2px 13px -1px rgba(0, 0, 0, 0.15);
+}
+section.contact .touch h4 {
+  font-weight: 600;
+  font-size: 23px;
+  color: #38defe;
+  letter-spacing: 1px;
+  margin-bottom: 1em;
+}
+section.contact .touch form .form-control {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  height: auto;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+section.contact .touch form .form-control:focus {
+  border: 2px solid #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+section.contact .touch form input {
+  font-size: 15px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #828282;
+  border-radius: 0px;
+  padding: 11px;
+}
+section.contact .touch form input::placeholder {
+  color: #888;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+section.contact .touch form textarea {
+  min-height: 11.7em;
+  border: none;
+  border-bottom: 1px solid #828282;
+}
+section.contact .touch form textarea::placeholder {
+  color: #888;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+section.contact .touch form .btn-submit {
+  font-size: 16px;
+  width: 100%;
+  background: #FC427B;
+  padding: 12px 0;
+  border: none;
+  outline: none;
+  border-radius: 0px;
+  margin-top: 1.7em;
+}
+section.transit {
+  height: 384px;
+}
+footer {
+  padding: 48px 0;
+  background: #212020;
+  color: white;
+}
+footer .warp-introduce {
+  border-bottom: 1px solid #dee2e6;
+}
+footer .introduce {
+  padding: 48px 15px;
+}
+footer .introduce h3 {
+  font-size: 20px;
+  margin-bottom: 48px;
+}
+footer .introduce h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+footer .introduce .concat-info p {
+  font-size: 15px;
+  letter-spacing: 1px;
+  line-height: 1.9;
+  color: #999;
+  font-family: 'Sintony', sans-serif;
+}
+footer .introduce .concat-margin {
+  margin: 24px 0;
+}
+footer .introduce ul.list li a {
+  transition: all 0.3s;
+  color: #999;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+footer .introduce ul.list li a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+footer div.last {
+  text-align: center;
+}
+footer div.last a {
+  margin-top: 16px;
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  background: url('../images/move-top.png') no-repeat;
+}
+footer div.last p {
+  color: #999;
+  letter-spacing: 1px;
+}
+footer div.last p span {
+  transition: all 0.3s;
+  color: #FC427B;
+}
+footer div.last p span:hover {
+  color: white;
+}
+/* 超小屏幕（手机，小于 768px） */
+/* 没有任何媒体查询相关的代码，因为这在 Bootstrap 中是默认的（还记得 Bootstrap 是移动设备优先的吗？） */
+@media (min-width: 360px) {
+  section.middle {
+    height: 300px;
+  }
+  section.middle .content .text span {
+    font-size: 22px;
+  }
+  section.middle .content .text h3 {
+    font-size: 20px;
+  }
+  section.middle .content .text p {
+    font-size: 12px;
+  }
+  section.contact .touch {
+    margin-top: 40px;
+  }
+}
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: 768px) {
+  nav.navbar {
+    padding: 10px 50px;
+  }
+  nav.navbar .navbar-collapse ul.navbar-right li a {
+    text-align: left;
+  }
+  nav.navbar .navbar-collapse ul.navbar-right li:hover ul.dropdown-menu {
+    display: block;
+  }
+  nav.navbar .navbar-collapse ul.navbar-right li:hover ul.dropdown-menu {
+    background: #333;
+  }
+  nav.navbar .navbar-collapse ul.navbar-right li:hover ul.dropdown-menu li a {
+    color: white;
+    transition: all 0.3s;
+    padding: 5px 10px;
+  }
+  nav.navbar .navbar-collapse ul.navbar-right li:hover ul.dropdown-menu li a:hover {
+    color: #333333;
+    background: white;
+  }
+  section.banner .carousel-inner .item {
+    height: 500px;
+  }
+  section.middle {
+    height: 350px;
+  }
+  section.middle .content .text span {
+    font-size: 23px;
+  }
+  section.middle .content .text h3 {
+    font-size: 25px;
+  }
+  section.middle .content .text p {
+    font-size: 13px;
+  }
+  section.contact .touch {
+    margin-top: 40px;
+  }
+}
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: 992px) {
+  section.banner .carousel-inner .item {
+    height: 600px;
+  }
+  section.banner .carousel-inner .item .caption {
+    padding-top: 170px;
+  }
+  section.banner .carousel-inner .item .caption h5 {
+    font-size: 20px;
+  }
+  section.banner .carousel-inner .item .caption h3 {
+    font-size: 40px;
+  }
+  section.middle {
+    height: 500px;
+  }
+  section.middle .content .text span {
+    font-size: 24px;
+  }
+  section.middle .content .text h3 {
+    font-size: 30px;
+  }
+  section.middle .content .text p {
+    font-size: 14px;
+  }
+  section.contact .touch {
+    margin-top: 0px;
+  }
+}
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: 1200px) {
+  section.banner .carousel-inner .item {
+    height: 720px;
+  }
+  section.banner .carousel-inner .item .caption {
+    padding-top: 250px;
+  }
+  section.banner .carousel-inner .item .caption h5 {
+    font-size: 25px;
+  }
+  section.banner .carousel-inner .item .caption h3 {
+    font-size: 50px;
+  }
+  section.middle {
+    height: 600px;
+  }
+  section.middle .content .text span {
+    font-size: 26px;
+  }
+  section.middle .content .text h3 {
+    font-size: 32px;
+  }
+  section.middle .content .text p {
+    font-size: 15px;
+  }
+}
+/*# sourceMappingURL=./style.css.map */

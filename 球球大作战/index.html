@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .stage {
+            width: 360px;
+            height: 640px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stage">
+        <canvas id="canvas"></canvas>
+    </div>
+    <script src="./preloadsheet.js"></script>
+    <script>
+        var frames = 0;
+
+        var segements = [];
+
+        var colorArr = [
+            "#FF9966",
+            "#FF6666",
+            "#99CCFF",
+            "#666633",
+            "#6699CC",
+            "#CCCCFF",
+            "#CC3399",
+            "#66CCCC",
+            "#CC0066"
+        ];
+
+        //准备场景小球
+        var a = {
+            r: 50,
+            maxR: 50,
+            minR: 40,
+            zoom: false,
+            color: randomColor()
+        }
+
+        var b = {
+            r: 30,
+            maxR: 30,
+            minR: 20,
+            zoom: false,
+            color: randomColor()
+        }
+
+        var game = {
+            stageW: 360,
+            stageH: 640,
+            score: 0,
+            center: {
+                x: 360 / 2,
+                y: 640 / 2
+            },
+            start: false
+        }
+
+        var startBtn = {
+            name: 'start_btn_png',
+            w: (game.stageW) / 2,
+            h: ((file['start_btn_png'].h / file['start_btn_png'].w) * (game.stageW) / 2),
+            x: (game.stageW - (game.stageW) / 2) / 2,
+            y: game.stageH / 2 + 50
+        }
+
+        var canvas = document.querySelector('canvas')
+
+        var img = new Image()
+
+        img.src = './preloadsheet.png'
+
+        function randomColor() {
+            return colorArr[Math.floor(Math.random() * colorArr.length)];
+        }
+
+
+        var ctx = canvas.getContext('2d')
+        /** @type {HTMLCanvasElement} */
+
+        //设置画布大小
+        canvas.width = game.stageW
+        canvas.height = game.stageH
+
+        //设置背景颜色
+        function drawBg() {
+            ctx.fillStyle = "#eaeaea";
+            ctx.fillRect(0, 0, game.stageW, game.stageH)
+        }
+
+        //画圆
+        function drawCircle(x, y, r, color, fill) {
+            ctx.beginPath()
+            ctx.arc(x, y, r, 0, Math.PI * 2)
+            ctx.closePath()
+            if (fill) {
+                ctx.fillStyle = color
+                ctx.fill()
+            } else {
+                ctx.strokeStyle = color
+                ctx.stroke()
+            }
+        }
+
+        //画按钮
+        function drawBtn(obj) {
+            ctx.drawImage(
+                img,
+                file[obj.name].x,
+                file[obj.name].y,
+                file[obj.name].w,
+                file[obj.name].h,
+                obj.x,
+                obj.y,
+                obj.w,
+                obj.h
+
+            )
+        }
+
+        //生成随机数
+        function randomNum(m, n) {
+            return Math.round((Math.random() * (n - m)) + m)
+        }
+        function randomFloor(m, n) {
+            return Math.random() * (n - m) + m
+        }
+
+        //生成小球
+        function Boll(m, n) {
+            this.r = randomNum(m, n)
+            this.color = randomColor()
+        }
+
+
+
+        //我方小球球构造器
+        function OurBoll() {
+            this.x = game.center.x
+            this.y = game.center.y
+            this.r = 5
+            this.color = randomColor()
+            this.loop = {
+                r: this.r,
+                minR: this.r,
+                maxR: this.r + 5,
+                color: randomColor(),
+                zoom: true
+            }
+        }
+
+        var o = new OurBoll()
+
+
+
+        Boll.prototype.generateCoord = function () {
+            var num = randomNum(0, 3)
+            switch (num) {
+                case 0:
+                    this.x = randomNum(-this.r, game.stageW + this.r)
+                    this.y = -this.r
+                    break
+                case 1:
+                    this.x = game.stageW + this.r
+                    this.y = randomNum(-this.r, game.stageH + this.r)
+                    break
+                case 2:
+                    this.x = randomNum(-this.r, game.stageW + this.r)
+                    this.y = game.stageH + this.r
+                    break
+                case 3:
+                    this.x = -this.r
+                    this.y = randomNum(-this.r, game.stageH + this.r)
+                    break
+            }
+        }
+        var bollspeed = 3
+        Boll.prototype.generateSpeed = function () {
+            if (this.x > game.stageW) {
+                this.sx = -randomFloor(0,bollspeed);
+                this.sy = randomFloor(-bollspeed, bollspeed)
+            }
+            if (this.x < 0) {
+                this.sx = randomFloor(0,bollspeed);
+                this.sy = randomFloor(-bollspeed, bollspeed)
+            }
+            if (this.y > game.stageH) {
+                this.sx = randomFloor(-bollspeed,bollspeed);
+                this.sy = -randomFloor(0, bollspeed)
+            }
+            if (this.y < 0) {
+                this.sy = randomFloor(0,bollspeed);
+                this.sx = randomFloor(-bollspeed, bollspeed)
+            }
+        }
+
+        Boll.prototype.move = function () {
+            this.x = this.x + this.sx
+            this.y = this.y + this.sy
+        }
+
+        Boll.prototype.checkOver = function () {
+
+            if (this.x < -this.r || this.x > game.stageW + this.r) {
+                // arr.splice(index, 1)
+                this.over = true;
+            }
+            if (this.y < -this.r || this.y > game.stageH + this.r) {
+                // arr.splice(index, 1)
+                this.over = true;
+            }
+
+        }
+        function checkCrash(obj) {
+            var s = Math.sqrt((obj.x - o.x) * (obj.x - o.x) + (obj.y - o.y) * (obj.y - o.y));
+            if (s < o.r + obj.r) {
+                return true;
+            }
+        }
+
+        //更新准备场景视图
+        function updateZoom(obj) {
+            if (!obj.zoom) {
+                obj.r -= 0.3;
+                obj.zoom = obj.r <= obj.minR ? true : false;
+            } else {
+                obj.r += 0.3
+                obj.zoom = obj.r >= obj.maxR ? false : true;
+            }
+
+        }
+
+        //准备场景
+        function ready() {
+            updateZoom(a)
+            updateZoom(b)
+            drawCircle(game.center.x - a.minR, game.center.y - a.maxR, a.r, a.color, true)
+            drawCircle(game.center.x + b.minR, game.center.y - b.maxR, b.r, b.color, true)
+            drawBtn(startBtn)
+        }
+
+        //开始
+        function start() {
+            frames++
+
+            updateZoom(o.loop)
+            drawCircle(o.x, o.y, o.r, o.color, true)
+            drawCircle(o.x, o.y, o.loop.r, o.loop.color, false)
+
+
+            if (!(frames % 10)) {
+                var newBoll = new Boll(o.r - 4, o.r + 20)
+                newBoll.generateCoord();
+                newBoll.generateSpeed();
+                segements.push(newBoll)
+            }
+
+            segements.forEach(function (boll, index, arr) {
+
+                boll.move()
+                boll.checkOver()
+                drawCircle(boll.x, boll.y, boll.r, boll.color, true)
+                if (checkCrash(boll)) {
+                    if (boll.r >= o.r) {
+                        gameover()
+                    } else {
+                        boll.die = true
+                        var addR = boll.r / 5
+                        o.r += addR
+                        o.loop.r += addR
+                        o.loop.minR += addR
+                        o.loop.maxR += addR
+                        game.score++
+                    }
+                }
+            })
+            segements.forEach(function (boll, index, arr) {
+                if (boll.over || boll.die) {
+                    arr.splice(index, 1)
+                }
+            })
+            ctx.font = "30px Arial"
+            ctx.fillStyle = '#333333'
+            ctx.fillText(game.score, 10, 50)
+
+        }
+
+        //游戏结束
+        function gameover() {
+            clearInterval(timer)
+            if (localStorage.score) {
+                var oldArr = JSON.parse(localStorage.score)
+                for (var i = 0; i < oldArr.length; i++) {
+                    for (var key in oldArr[i]) {
+                        if (game.score == key) {
+                            oldArr[i][key]++
+                            localStorage.score = JSON.stringify(oldArr)
+                            return;
+                        }
+                    }
+
+                }
+                var newScore = {}
+                newScore[game.score] = 1
+                oldArr.push(newScore)
+                localStorage.score = JSON.stringify(oldArr)
+            } else {
+                var newScore = {}
+                newScore[game.score] = 1
+                localStorage.score = JSON.stringify([newScore])
+            }
+        }
+
+        // //游戏结束界面
+        // function gameoverView() { 
+
+        //  }
+        canvas.onclick = function (e) {
+            var xCrash = e.offsetX >= startBtn.x && e.offsetX <= startBtn.x + startBtn.w
+            var yCrash = e.offsetY >= startBtn.y && e.offsetY <= startBtn.y + startBtn.h
+            if (xCrash && yCrash) {
+                game.start = true
+            }
+
+            if (Math.abs(e.offsetX - game.center.x) < 5 && Math.abs(e.offsetY - game.center.y) < 5) {
+                canvas.onmousemove = function (e) {
+                    o.x = e.offsetX;
+                    o.y = e.offsetY
+                }
+
+            }
+
+            if (navigator.maxTouchPoints) {
+                canvas.ontouchmove = function (e) {
+                    o.x = e.touches[0].pageX
+                    o.y = e.touches[0].pageY
+                }
+            }
+        }
+
+        var timer = setInterval(function () {
+            ctx.clearRect(0, 0, game.stageW, game.stageH)
+
+            drawBg()
+
+            if (game.start) {
+                start()
+
+            } else {
+                ready()
+            }
+        }, 30)
+
+
+
+
+    </script>
+</body>
+
+</html>

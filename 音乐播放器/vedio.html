@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/vedio.css">
+</head>
+
+<body>
+    <div class="main">
+        <audio src="./music/薛之谦 - 我好像在哪见过你.mp3" type="audio/mpeg"></audio>
+        <div class="top">
+            <span class="music-name">我好像在哪见过你</span><br>
+            <span class="author">薛之谦</span>
+            <div class="schedule">
+                <div class="move">
+                    <div class="circule"></div>
+                </div>
+                <div class="bg"></div>
+            </div>
+            <div class="time">
+                <span class="now-time">00:00</span>
+                <span class="duration">00:00</span>
+            </div>
+        </div>
+        <div class="bod">
+            <ul class="warp-miusic">
+                <li class="active">
+                    <div class="img">
+                        <img src="./images/01.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <h4>我好像在哪见过你</h4>
+                        <p>薛之谦</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="./images/02.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <h4>你还要我怎样</h4>
+                        <p>薛之谦</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="./images/03.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <h4>意外</h4>
+                        <p>薛之谦</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="footer">
+            <ul>
+                <li class="prev">
+                    <span></span>
+                    <span></span>
+                </li>
+                <li class="start">
+                    <span class="pause">
+                        <i></i>
+                        <i></i>
+                    </span>
+                </li>
+                <li class="next">
+                    <span></span>
+                    <span></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        var main = document.querySelector('.main')
+        var start = document.querySelector('.main .footer .start')
+        var btn = start.getElementsByTagName('span')[0]
+        var audio = document.querySelector('audio')
+        var schedule = document.querySelector('.schedule')
+        var move = schedule.querySelector('.move')
+        var bg = schedule.querySelector('.bg')
+        var bgWidth = bg.offsetWidth
+        var nowTimes = document.querySelector('.now-time')
+        var mDuration = document.querySelector('.duration')
+        var timer = null;
+        var next = document.querySelector('.next')
+        var prev = document.querySelector('.prev')
+        var musics = ['./music/薛之谦 - 我好像在哪见过你.mp3',
+            './music/薛之谦 - 你还要我怎样.mp3',
+            './music/薛之谦 - 意外.mp3']
+        var musicNum = 0
+        var lis = document.querySelectorAll('.warp-miusic li')
+        var topn = main.querySelector('.top')
+        var musicName = document.querySelector('.music-name')
+        var author = document.querySelector('.author')
+        var img = null
+        var flag = true
+
+        start.onclick = function (e) {
+            timing()
+            if (btn.className.indexOf('pause') != -1) {
+                
+                playMusic(musicNum)
+
+            } else {
+                stopMusic(musicNum)
+
+            }
+        }
+
+        lis.forEach(function (elemt,index,arr) { 
+            elemt.ondblclick  = function () { 
+                musicNum = index
+                topn.style.backgroundImage = "url('./images/0"+( index + 1 ) +".jpg')"
+                audio.src = musics[index]
+                playMusic(index)
+                active(index)
+                changeText(index)
+                timing()
+             }
+         })
+
+
+        schedule.onmousedown = function (e) {
+            var instantTime = e.clientX - main.offsetLeft - 28
+            var x = e.offsetX
+            move.style.width = x + 'px'
+
+            audio.currentTime = instantTime
+            document.body.onmousemove = function (e) {
+                var newx = e.clientX - main.offsetLeft - 28
+                newx = newx <= 10 ? 10 : newx;
+                newx = newx > bgWidth ? bgWidth : newx;
+                move.style.width = newx + 'px'
+                audio.currentTime = newx
+            }
+
+        }
+        document.body.onmouseup = function () {
+            document.body.onmousemove = null
+        }
+
+        audio.onended = function () {
+            btn.className = 'pause'
+            move.style.width = 0 + 'px'
+            mDuration.innerText = '00:00'
+            nowTimes.innerText = '00:00'
+            clearInterval(timer)
+            nextMusci()
+            flag = true
+        }
+
+
+        next.onclick = function () {
+            nextMusci()
+        }
+        prev.onclick = function () {
+            prevMusic()
+        }
+
+
+
+        function playMusic(num) {
+            btn.className = 'active play'
+            musicDuration();
+            audio.play();
+            lis.forEach(function (elemt,index) { 
+                if(index == num){
+                    img = elemt.querySelector('.img') 
+                    img.style.animation = "myrotate 3s linear infinite"
+                }else{
+                    img = elemt.querySelector('.img')
+                    img.style.transform = 'rotate(0)'
+                    img.style.animation = ''
+                }
+             })
+        }
+        function stopMusic(num) {
+            audio.pause();
+            btn.className = 'pause'
+            clearInterval(timer)
+            lis.forEach(function (elemt,index) { 
+                if(index == num){
+                    img = elemt.querySelector('.img') 
+                    img.style.animation = "myrotate 3s linear infinite paused"
+                }else{
+                    img = elemt.querySelector('.img')
+                    img.style.transform = 'rotate(0)'
+                    img.style.animation = ''
+                }
+             })
+        }
+        function musicDuration() {   
+          if(flag){
+            audio.load() 
+            flag = false   
+          }
+            audio.oncanplay = function () {
+                var time = parseInt(audio.duration)       
+                var min = parseInt(time / 60)
+                var second = time % 60
+                mDuration.innerText = '0' + min + ':' + second;
+            }
+
+        }
+        function nowTime() {
+            var time = audio.currentTime
+            var min = parseInt(time / 60) >= 10 ? parseInt(time / 60) : '0' + (parseInt(time / 60))
+            var second = parseInt(time % 60) >= 10 ? parseInt(time % 60) : '0' + (parseInt(time % 60))
+            nowTimes.innerText = min + ':' + second
+        }
+        function changeWidth() {
+            var timeL = audio.duration
+            var time = audio.currentTime
+            var present = (time / timeL) * 100
+            
+            move.style.width = present + '%'
+        }
+        function timing() {
+            timer = setInterval(function () {
+                nowTime();
+                changeWidth()
+            }, 1000)
+        }
+        function nextMusci() {
+            clearInterval(timer)
+            musicNum++
+            musicNum = musicNum > musics.length - 1 ? 0 : musicNum
+            topn.style.backgroundImage = "url('./images/0"+( musicNum + 1 ) +".jpg')"
+            audio.src = musics[musicNum]
+            active(musicNum)
+            changeText(musicNum)
+            playMusic(musicNum)
+            timing()
+        }
+        function prevMusic() {
+            clearInterval(timer)
+            musicNum--
+            musicNum = musicNum < 0 ? musics.length - 1 : musicNum
+            topn.style.backgroundImage = "url('./images/0"+( musicNum + 1) +".jpg')"
+            audio.src = musics[musicNum]
+            active(musicNum)
+            changeText(musicNum)
+            playMusic(musicNum)
+            timing()
+        }
+        function active(num) {
+            lis.forEach(function (elemt, index) {
+                if (num == index) {
+                    elemt.className = 'active'
+                } else {
+                    elemt.className = ' '
+                }
+            })
+        }
+
+        function changeText(num) { 
+            var text = lis[num].querySelector('.text')
+            var h4 = text.querySelector('h4')
+            var p = text.querySelector('p')
+            musicName.innerText = h4.innerText
+            author.innerText = p.innerText
+            
+           
+         }
+    </script>
+</body>
+
+</html>

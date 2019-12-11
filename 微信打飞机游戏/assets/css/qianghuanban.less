@@ -1,0 +1,65 @@
+html,body{
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+
+}
+.warp(){
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-size: cover;
+    background-position: center 0px;
+    position: relative;
+}
+.button() {
+	position: absolute;
+	left: 50%;
+	width: 120px;
+	margin-left: -60px;
+	line-height: 30px;
+	background: #c4c9ca;
+	outline: none;
+	border: 1px solid black;
+	border-radius: 30px;
+	display: block;
+}
+.stage{
+    width: 200%;
+    height: 100%;
+    // margin-left: -100%;
+    position: relative;
+    transition: all .5s;
+    .game-start{
+        .warp;
+        background-image: url('../images/background-start.png');
+        button.btn{
+            bottom: 20%;
+            .button;
+        }
+    }
+    .game{
+        .warp;
+        background-image: url('../images/background-game.png');
+        img{
+            position: absolute;
+        }
+        .score{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            span{
+                display: none;
+                margin: 20px;
+                &:nth-child(1){
+                    float: left;
+                }
+                &:nth-child(2){
+                    float: right;
+                }
+            }
+        }
+        
+    }
+}

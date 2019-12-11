@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        /**@type {HTMLCanvasElement}*/
+        var canvas = document.querySelector('#canvas')
+        var ctx = canvas.getContext('2d')
+        var width = 0;
+        var height = 10;
+        var frame = 0;
+        var bolls = []
+        var flag = true
+        var colors = ['red', "pink", "bule", "orange"]
+        function changeW(width) {
+            ctx.rect(50, 230, width, height)
+            ctx.fillStyle = 'orange'
+            ctx.fill()
+        }
+
+        function changeL() {
+            var timer = setInterval(() => {
+                ctx.clearRect(0, 0, 500, 500)
+
+                ctx.fillStyle = 'lightgray'
+                ctx.fillRect(50,230,400,height)
+
+                frame++
+                width++
+                changeW(width)
+                if (frame % 2 == 0 && flag) {
+                    var boll = new SamllBoll(width + 50, 230, 2)
+                    bolls.push(boll)
+                    boll.generateSpeed(2, 4, false)
+                    boll.draw()
+                }
+                bolls.forEach( (elemt, index, arr) => {
+                    elemt.move()
+                    elemt.draw()
+                    elemt.updataBoll()
+                    if (elemt.r <= 0) { 
+                        arr.splice(index, 1)
+                    }
+                })
+                if (width > 400) {
+                   width = 400
+                   flag = false
+                 
+                   if(bolls.length == 0){  
+                       clearInterval(timer)
+                   }
+                }
+            }, 30);
+        }
+
+        class SamllBoll {
+            constructor(x, y, r) {
+                this.x = x
+                this.y = y
+                this.r = r
+                this.color = randomColor()
+            }
+            draw() {
+                ctx.beginPath()
+                ctx.fillStyle = this.color
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
+                ctx.fill()
+            }
+            move() {
+                this.x += this.sx
+                this.y += this.sy
+            }
+            generateSpeed(m, n, int) {
+                this.sx = -randomR(m, n, int) / 5
+                this.sy = -randomR(m, n, int)
+            }
+            updataBoll() {
+                this.sy += 0.1;
+                this.r -= 0.02
+                if (this.r <= 0) {
+                    this.r = 0
+                }
+            }
+        }
+
+
+        function randomR(m, n, int) {
+            if (int) {
+                return Math.floor(Math.random() * (n - m) + m);
+            } else {
+                return Math.random() * (n - m) + m;
+            }
+        }
+        function randomColor() {
+            var color = Math.floor(Math.random() * (colors.length))
+            return colors[color]
+        }
+
+        changeL()
+    </script>
+</body>
+
+</html>

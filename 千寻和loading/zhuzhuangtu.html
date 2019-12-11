@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/sx.css">
+</head>
+
+<body>
+    <div class="stage">
+        <div class="mask">
+            <h3>STEPS</h3>
+            <p>THIS WEEK</p>
+            <div class="chart">
+                <span><i class="top">a</i><i class="left">1000</i><i class="front"></i></span>
+                <span><i class="top">b</i><i class="left">1000</i><i class="front"></i></span>
+                <span><i class="top">c</i><i class="left">1000</i><i class="front"></i></span>
+                <span><i class="top">d</i><i class="left">1000</i><i class="front"></i></span>
+                <span><i class="top">e</i><i class="left">1000</i><i class="front"></i></span>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var stage = document.querySelector('.stage');
+    var spans = document.querySelectorAll('.chart span');
+    
+    // document.body.onmousemove = function (event) {
+    //     var x = event.clientX - stage.offsetLeft - stage.offsetWidth;
+    //     var y = event.clientY - stage.offsetTop - stage.offsetHeight;
+    //     // document.body.style.perspectiveOrigin = x / 5 + 50 + "% " + (y / 5 + 50) + "%"
+    //     stage.style.transform = "rotateY(" + -x / 20 + "deg) rotateX(" + y / 20 + "deg)";
+    // }
+    document.body.onclick = function () { 
+        document.body.onmousemove = null;
+        stage.classList.toggle('active')
+        var list = Array.prototype.slice.call(stage.classList)
+        
+        if(list.indexOf('active')== 1){
+            spans.forEach(function (span,i) { 
+                var rundomNum = Math.floor(Math.random()*200+20)
+                span.querySelectorAll('i').forEach(function (iement,index) { 
+                   if(index > 0){
+                    iement.style.width = rundomNum + 'px'
+                    if(index == 1){
+                        iement.innerText = rundomNum - 20;
+                    }
+                   }else{
+                       iement.style.transform = ' translateZ('+ rundomNum + 'px)';
+                   }
+                 })
+             })
+        }else{
+            spans.forEach(function (span,i) { 
+                span.querySelectorAll('i').forEach(function (iement,index) { 
+                   if(index > 0){
+                    iement.style.width = 0 + 'px'
+                   }else{
+                       iement.style.transform = ' translateZ('+ 0 + 'px)';
+                   }
+                 })
+             })
+        }
+     }
+
+</script>
+
+</html>

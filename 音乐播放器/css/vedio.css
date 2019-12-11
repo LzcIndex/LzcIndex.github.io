@@ -1,0 +1,173 @@
+body {
+  background: #888;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none ;
+}
+.main {
+  margin: 0 auto;
+  width: 352px;
+}
+.main .top {
+  background: url('../images/01.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 100px 28px 28px 28px;
+  color: white;
+}
+.main .top span {
+  line-height: 2;
+}
+.main .top .music-name {
+  font-weight: bold;
+}
+.main .top .author {
+  text-shadow: 0 1px 1px #000;
+}
+.main .top .schedule {
+  height: 10px;
+  border-radius: 5px;
+  position: relative;
+  margin: 20px 0px;
+  overflow: hidden;
+}
+.main .top .schedule .move {
+  transition: all 0.2s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  border-radius: 5px;
+  background: #f66;
+}
+.main .top .schedule .move .circule {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: -5px;
+  top: 0;
+  border-radius: 50%;
+  background: white;
+}
+.main .top .schedule .bg {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.main .top .time {
+  display: flex;
+}
+.main .top .time span {
+  flex: 1;
+  display: block;
+  font-size: 12px;
+  text-shadow: 0 1px 1px #000;
+}
+.main .top .time .duration {
+  text-align: right;
+}
+.main .bod {
+  background: white;
+}
+.main .bod ul li {
+  padding: 18px 28px;
+  display: flex;
+}
+.main .bod ul li .img {
+  width: 40px;
+  height: 40px;
+  vertical-align: bottom;
+  margin-right: 15px;
+}
+.main .bod ul li .img img {
+  border-radius: 50%;
+  width: 100%;
+}
+.main .bod ul li .text {
+  vertical-align: bottom;
+}
+.main .bod ul li .text h4 {
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+.main .bod ul li .text p {
+  font-size: 11px;
+  color: #888;
+  padding: 0;
+  margin: 0;
+}
+.main .bod ul li.active {
+  background: #f55c5c;
+}
+.main .bod ul li.active .text h4 {
+  color: white;
+}
+.main .bod ul li.active .text p {
+  color: white;
+}
+.main .footer {
+  background: #fafafa;
+}
+.main .footer ul {
+  display: flex;
+}
+.main .footer ul li {
+  flex: 1;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .footer ul li span {
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 15px solid #ddd;
+  border-top: 7.5px solid transparent;
+  border-bottom: 7.5px solid transparent;
+  border-left: 0;
+  cursor: pointer;
+}
+.main .footer ul li:nth-child(2) span {
+  border-right: 0;
+  border-top: 7.5px solid transparent;
+  border-bottom: 7.5px solid transparent;
+  border-left: 15px solid #ddd;
+}
+.main .footer ul li:nth-child(2) span.active {
+  border: 0;
+  width: 20px;
+  height: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+.main .footer ul li:nth-child(2) span.active i {
+  display: block;
+  width: 6px;
+  height: 15px;
+  background: #f66;
+}
+.main .footer ul li:nth-child(3) span {
+  border-right: 0;
+  border-top: 7.5px solid transparent;
+  border-bottom: 7.5px solid transparent;
+  border-left: 15px solid #ddd;
+}
+@keyframes myrotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=./vedio.css.map */
