@@ -126,6 +126,54 @@ ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+.main .footer ul li.rule:hover i {
+  color: #f66;
+}
+.main .footer ul li.rule i {
+  color: #ddd;
+  cursor: pointer;
+}
+.main .footer ul li.volume:hover i {
+  color: #f66;
+}
+.main .footer ul li.volume:hover div.vicebg {
+  opacity: 1;
+}
+.main .footer ul li.volume:hover div.vicebg span.vice {
+  opacity: 1;
+}
+.main .footer ul li.volume i {
+  color: #ddd;
+}
+.main .footer ul li.volume div.vicebg {
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  height: 50px;
+  width: 4px;
+  transform: translateY(-50%);
+  background: gainsboro;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.main .footer ul li.volume div.vicebg span.vice {
+  opacity: 0;
+  transition: height 0.3s;
+  border-radius: 2px;
+  display: block;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  height: 20%;
+  width: 4px;
+  background: #f66;
+  border: none;
+  cursor: pointer;
 }
 .main .footer ul li span {
   display: block;

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./css/vedio.css">
 </head>
 
@@ -59,7 +60,9 @@
         </div>
         <div class="footer">
             <ul>
-                <li></li>
+                <li class="rule">
+                    <i class="fa fa-refresh" aria-hidden="true"></i>
+                </li>
                 <li class="prev">
                     <span></span>
                     <span></span>
@@ -74,7 +77,12 @@
                     <span></span>
                     <span></span>
                 </li>
-                <li></li>
+                <li class="volume">
+                    <i class="fa fa-volume-up" aria-hidden="true"></i>
+                    <div class="vicebg">
+                        <span class="vice"></span>
+                    </span>
+                </li>
             </ul>
         </div>
     </div>
@@ -107,11 +115,19 @@
         var author = document.querySelector('.author')
         var img = null
         var flag = true
+        var rule = document.querySelector('.footer ul .rule')
+        var ruleI = rule.querySelector('i')
+        var rules = ["fa fa-refresh", "fa fa-circle-o", "fa fa-random"]
+        var ruleNum = 0
+        var isNext = true
+        var volume = document.querySelector('.footer .volume')
+        var vicebg = volume.querySelector('.vicebg')
+        var vice = vicebg.querySelector('.vice')
 
         start.onclick = function (e) {
             timing()
             if (btn.className.indexOf('pause') != -1) {
-                
+
                 playMusic(musicNum)
 
             } else {
@@ -120,19 +136,19 @@
             }
         }
 
-        lis.forEach(function (elemt,index,arr) { 
-            elemt.ondblclick  = function () { 
+        lis.forEach(function (elemt, index, arr) {
+            elemt.ondblclick = function () {
                 musicNum = index
-                topn.style.backgroundImage = "url('./images/0"+( index + 1 ) +".jpg')"
+                topn.style.backgroundImage = "url('./images/0" + (index + 1) + ".jpg')"
                 audio.src = musics[index]
                 playMusic(index)
                 active(index)
                 changeText(index)
                 timing()
-             }
-         })
+            }
+        })
 
-
+        //进度条
         schedule.onmousedown = function (e) {
             var instantTime = e.clientX - main.offsetLeft - 28
             var x = e.offsetX
@@ -140,6 +156,7 @@
 
             audio.currentTime = instantTime
             document.body.onmousemove = function (e) {
+                e.preventDefault()
                 var newx = e.clientX - main.offsetLeft - 28
                 newx = newx <= 10 ? 10 : newx;
                 newx = newx > bgWidth ? bgWidth : newx;
@@ -148,6 +165,27 @@
             }
 
         }
+        
+        //默认音量大小
+        audio.volume = vice.offsetHeight / vicebg.offsetHeight
+
+        //音量控制
+        vicebg.onmousedown = function (e) {      
+          var  y =volume.offsetTop -  e.clientY + (vicebg.offsetHeight/2)
+          vice.style.height = y + 'px' 
+          audio.volume= (y / vicebg.offsetHeight).toFixed(1) 
+            document.body.onmousemove = function (e) {
+            e.preventDefault()
+            var newy =volume.offsetTop -  e.clientY + (vicebg.offsetHeight/2)
+            newy = newy <= 0? 0 : newy;
+            newy = newy >=  vicebg.offsetHeight ? vicebg.offsetHeight : newy
+            vice.style.height = newy + 'px' 
+            audio.volume= (newy / vicebg.offsetHeight).toFixed(1)
+            }
+
+        }
+
+
         document.body.onmouseup = function () {
             document.body.onmousemove = null
         }
@@ -169,46 +207,50 @@
         prev.onclick = function () {
             prevMusic()
         }
-
+        rule.onclick = function () {
+            ruleNum++;
+            ruleNum = ruleNum >= rules.length ? 0 : ruleNum;
+            changeRule(ruleNum)
+        }
 
 
         function playMusic(num) {
             btn.className = 'active play'
             musicDuration();
             audio.play();
-            lis.forEach(function (elemt,index) { 
-                if(index == num){
-                    img = elemt.querySelector('.img') 
+            lis.forEach(function (elemt, index) {
+                if (index == num) {
+                    img = elemt.querySelector('.img')
                     img.style.animation = "myrotate 3s linear infinite"
-                }else{
+                } else {
                     img = elemt.querySelector('.img')
                     img.style.transform = 'rotate(0)'
                     img.style.animation = ''
                 }
-             })
+            })
         }
         function stopMusic(num) {
             audio.pause();
             btn.className = 'pause'
             clearInterval(timer)
-            lis.forEach(function (elemt,index) { 
-                if(index == num){
-                    img = elemt.querySelector('.img') 
+            lis.forEach(function (elemt, index) {
+                if (index == num) {
+                    img = elemt.querySelector('.img')
                     img.style.animation = "myrotate 3s linear infinite paused"
-                }else{
+                } else {
                     img = elemt.querySelector('.img')
                     img.style.transform = 'rotate(0)'
                     img.style.animation = ''
                 }
-             })
+            })
         }
-        function musicDuration() {   
-          if(flag){
-            audio.load() 
-            flag = false   
-          }
+        function musicDuration() {
+            if (flag) {
+                audio.load()
+                flag = false
+            }
             audio.oncanplay = function () {
-                var time = parseInt(audio.duration)       
+                var time = parseInt(audio.duration)
                 var min = parseInt(time / 60)
                 var second = time % 60
                 mDuration.innerText = '0' + min + ':' + second;
@@ -225,7 +267,7 @@
             var timeL = audio.duration
             var time = audio.currentTime
             var present = (time / timeL) * 100
-            
+
             move.style.width = present + '%'
         }
         function timing() {
@@ -235,10 +277,10 @@
             }, 1000)
         }
         function nextMusci() {
+            isNext = true
             clearInterval(timer)
-            musicNum++
-            musicNum = musicNum > musics.length - 1 ? 0 : musicNum
-            topn.style.backgroundImage = "url('./images/0"+( musicNum + 1 ) +".jpg')"
+            checkClassName()
+            topn.style.backgroundImage = "url('./images/0" + (musicNum + 1) + ".jpg')"
             audio.src = musics[musicNum]
             active(musicNum)
             changeText(musicNum)
@@ -246,10 +288,11 @@
             timing()
         }
         function prevMusic() {
+            isNext = false
             clearInterval(timer)
-            musicNum--
-            musicNum = musicNum < 0 ? musics.length - 1 : musicNum
-            topn.style.backgroundImage = "url('./images/0"+( musicNum + 1) +".jpg')"
+
+            checkClassName()
+            topn.style.backgroundImage = "url('./images/0" + (musicNum + 1) + ".jpg')"
             audio.src = musics[musicNum]
             active(musicNum)
             changeText(musicNum)
@@ -266,15 +309,52 @@
             })
         }
 
-        function changeText(num) { 
+        function changeText(num) {
             var text = lis[num].querySelector('.text')
             var h4 = text.querySelector('h4')
             var p = text.querySelector('p')
             musicName.innerText = h4.innerText
             author.innerText = p.innerText
-            
-           
-         }
+        }
+
+        function changeRule(num) {
+            if (num != undefined) {
+                ruleI.className = rules[num]
+            }
+            return ruleI.className
+        }
+
+        function randomMusic() {
+            return Math.floor(Math.random() * musics.length)
+        }
+
+        function checkClassName() {
+            var clName = changeRule()
+            switch (clName) {
+                case "fa fa-refresh": {
+                    if (isNext) {
+                        musicNum++
+                        musicNum = musicNum > musics.length - 1 ? 0 : musicNum
+                    }
+                    else {
+                        musicNum--
+                        musicNum = musicNum < 0 ? musics.length - 1 : musicNum
+                    }
+
+                    break;
+                }
+                case "fa fa-circle-o": {
+                    musicNum = musicNum
+                    break;
+                }
+                case "fa fa-random": {
+                    musicNum = randomMusic()
+                    break;
+                }
+            }
+        }
+
+
     </script>
 </body>
 
