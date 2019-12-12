@@ -171,16 +171,16 @@
         //进度条
         schedule.onmousedown = function (e) {
             var instantTime = e.clientX - main.offsetLeft - 28
-            var x = e.offsetX
-            move.style.width = x + 'px'
-            audio.currentTime = instantTime
+            var x = e.offsetX 
+            move.style.width = x + 'px'       
+            audio.currentTime = (instantTime / bg.offsetWidth)*audio.duration
             document.body.onmousemove = function (e) {
                 e.preventDefault()
                 var newx = e.clientX - main.offsetLeft - 28
                 newx = newx <= 10 ? 10 : newx;
                 newx = newx > bgWidth ? bgWidth : newx;
                 move.style.width = newx + 'px'
-                audio.currentTime = newx
+                audio.currentTime = (newx / bg.offsetWidth)*audio.duration
             }
 
         }
