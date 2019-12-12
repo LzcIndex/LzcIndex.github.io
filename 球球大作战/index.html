@@ -78,6 +78,30 @@
             y: game.stageH / 2 + 50
         }
 
+        
+
+        var balance = {
+            name: 'balance_base_bg_png',
+            w: (game.stageW) / 2,
+            h: ((file['start_btn_png'].h / file['start_btn_png'].w) * (game.stageW) / 2),
+            x: (game.stageW - (game.stageW) / 2) / 2,
+            y: game.stageH / 2 + 50
+        }
+        var again = {
+            name: 'again_btn_png',
+            w: (game.stageW) / 2,
+            h: ((file['start_btn_png'].h / file['start_btn_png'].w) * (game.stageW) / 2),
+            x: (game.stageW - (game.stageW) / 2) / 2,
+            y: game.stageH / 2 + 50
+        }
+        var line = {
+            name: 'white_line_png',
+            w: (game.stageW) / 2,
+            h: ((file['start_btn_png'].h / file['start_btn_png'].w) * (game.stageW) / 2),
+            x: (game.stageW - (game.stageW) / 2) / 2,
+            y: game.stageH / 2 + 50
+        }
+
         var canvas = document.querySelector('canvas')
 
         var img = new Image()
@@ -131,7 +155,18 @@
 
             )
         }
-
+        function drawOverImage() { 
+            ctx.drawImage(
+            img,
+            Math.abs((game.stageW - 512)/2),//开始的x
+            0,//开始的y
+            512,//剪多宽
+            385,//剪多高
+            (game.stageW - (game.stageW/2))/2,//放置的x
+            ((game.stageH - (game.stageH/2/1.5))/2),//放置的y
+            game.stageW/2,
+            game.stageH/2/1.5)
+         }
         //生成随机数
         function randomNum(m, n) {
             return Math.round((Math.random() * (n - m)) + m)
@@ -302,6 +337,7 @@
         //游戏结束
         function gameover() {
             clearInterval(timer)
+            drawOverImage()
             if (localStorage.score) {
                 var oldArr = JSON.parse(localStorage.score)
                 for (var i = 0; i < oldArr.length; i++) {
@@ -323,6 +359,7 @@
                 newScore[game.score] = 1
                 localStorage.score = JSON.stringify([newScore])
             }
+            
         }
 
         // //游戏结束界面
@@ -365,7 +402,7 @@
             }
         }, 30)
 
-
+        
 
 
     </script>
