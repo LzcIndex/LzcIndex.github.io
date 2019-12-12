@@ -77,31 +77,15 @@
             x: (game.stageW - (game.stageW) / 2) / 2,
             y: game.stageH / 2 + 50
         }
-
-        
-
-        var balance = {
-            name: 'balance_base_bg_png',
-            w: (game.stageW) / 2,
-            h: ((file['start_btn_png'].h / file['start_btn_png'].w) * (game.stageW) / 2),
-            x: (game.stageW - (game.stageW) / 2) / 2,
-            y: game.stageH / 2 + 50
-        }
         var again = {
             name: 'again_btn_png',
-            w: (game.stageW) / 2,
-            h: ((file['start_btn_png'].h / file['start_btn_png'].w) * (game.stageW) / 2),
-            x: (game.stageW - (game.stageW) / 2) / 2,
-            y: game.stageH / 2 + 50
-        }
-        var line = {
-            name: 'white_line_png',
-            w: (game.stageW) / 2,
-            h: ((file['start_btn_png'].h / file['start_btn_png'].w) * (game.stageW) / 2),
-            x: (game.stageW - (game.stageW) / 2) / 2,
-            y: game.stageH / 2 + 50
+            w: (game.stageW) / 5,
+            h: ((file['start_btn_png'].h / file['start_btn_png'].w) * (game.stageW)/2),
+            x: (game.stageW - (game.stageW) / 5) / 2,
+            y: game.stageH - 100
         }
 
+        
         var canvas = document.querySelector('canvas')
 
         var img = new Image()
@@ -166,6 +150,8 @@
             ((game.stageH - (game.stageH/2/1.5))/2),//放置的y
             game.stageW/2,
             game.stageH/2/1.5)
+
+            drawBtn(again)
 
             ctx.font = "30px Arial"
             ctx.fillStyle = '#fff'
@@ -342,6 +328,13 @@
         function gameover() {
             clearInterval(timer)
             drawOverImage()
+            canvas.onclick = function (e) { 
+            var xCrash = e.offsetX >= again.x && e.offsetX <= again.x + again.w
+            var yCrash = e.offsetY >= again.y && e.offsetY <= again.y + again.h
+            if(xCrash && yCrash){
+            window.location.reload()
+            }
+             }
             if (localStorage.score) {
                 var oldArr = JSON.parse(localStorage.score)
                 for (var i = 0; i < oldArr.length; i++) {
@@ -363,6 +356,8 @@
                 newScore[game.score] = 1
                 localStorage.score = JSON.stringify([newScore])
             }
+
+            
             
         }
 
