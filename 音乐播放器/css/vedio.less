@@ -11,7 +11,7 @@ ul{
     width: 352px;
     .top{
         background: url('../images/01.jpg') no-repeat;
-        background-position: center;
+        background-position: top;
         background-size: cover;
         padding: 100px 28px 28px 28px;
         color: white;
@@ -74,17 +74,21 @@ ul{
     }
     .bod{
         background: white;
-        ul{
+        ul.warp-music{
+            height: 218px;
+            overflow: auto;
             li{
                 padding: 18px 28px;
                 display: flex;
                 .img{
+                    border-radius: 50%;
                     width: 40px;
                     height: 40px;
                     vertical-align: bottom;
                     margin-right: 15px;
+                    overflow: hidden;
                     img{
-                       border-radius: 50%;
+                      
                         width: 100%;
                     }
                 }

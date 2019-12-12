@@ -12,7 +12,7 @@ ul {
 }
 .main .top {
   background: url('../images/01.jpg') no-repeat;
-  background-position: center;
+  background-position: top;
   background-size: cover;
   padding: 100px 28px 28px 28px;
   color: white;
@@ -76,42 +76,47 @@ ul {
 .main .bod {
   background: white;
 }
-.main .bod ul li {
+.main .bod ul.warp-music {
+  height: 218px;
+  overflow: auto;
+}
+.main .bod ul.warp-music li {
   padding: 18px 28px;
   display: flex;
 }
-.main .bod ul li .img {
+.main .bod ul.warp-music li .img {
+  border-radius: 50%;
   width: 40px;
   height: 40px;
   vertical-align: bottom;
   margin-right: 15px;
+  overflow: hidden;
 }
-.main .bod ul li .img img {
-  border-radius: 50%;
+.main .bod ul.warp-music li .img img {
   width: 100%;
 }
-.main .bod ul li .text {
+.main .bod ul.warp-music li .text {
   vertical-align: bottom;
 }
-.main .bod ul li .text h4 {
+.main .bod ul.warp-music li .text h4 {
   font-size: 14px;
   font-weight: normal;
   margin: 0;
   padding: 0;
 }
-.main .bod ul li .text p {
+.main .bod ul.warp-music li .text p {
   font-size: 11px;
   color: #888;
   padding: 0;
   margin: 0;
 }
-.main .bod ul li.active {
+.main .bod ul.warp-music li.active {
   background: #f55c5c;
 }
-.main .bod ul li.active .text h4 {
+.main .bod ul.warp-music li.active .text h4 {
   color: white;
 }
-.main .bod ul li.active .text p {
+.main .bod ul.warp-music li.active .text p {
   color: white;
 }
 .main .footer {

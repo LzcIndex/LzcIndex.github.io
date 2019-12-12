@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="bod">
-            <ul class="warp-miusic">
+            <ul class="warp-music">
                 <li class="active">
                     <div class="img">
                         <img src="./images/01.jpg" alt="">
@@ -53,6 +53,24 @@
                     </div>
                     <div class="text">
                         <h4>意外</h4>
+                        <p>薛之谦</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="./images/04.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <h4>刚刚好</h4>
+                        <p>薛之谦</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="img">
+                        <img src="./images/05.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <h4>演员</h4>
                         <p>薛之谦</p>
                     </div>
                 </li>
@@ -107,9 +125,11 @@
         var prev = document.querySelector('.prev')
         var musics = ['./music/薛之谦 - 我好像在哪见过你.mp3',
             './music/薛之谦 - 你还要我怎样.mp3',
-            './music/薛之谦 - 意外.mp3']
+            './music/薛之谦 - 意外.mp3','./music/薛之谦 - 刚刚好.mp3',
+            './music/薛之谦 - 演员.mp3']
         var musicNum = 0
-        var lis = document.querySelectorAll('.warp-miusic li')
+       
+        var lis = document.querySelectorAll('.warp-music li')
         var topn = main.querySelector('.top')
         var musicName = document.querySelector('.music-name')
         var author = document.querySelector('.author')
@@ -137,7 +157,7 @@
         }
 
         lis.forEach(function (elemt, index, arr) {
-            elemt.ondblclick = function () {
+            elemt.ondblclick = function () {         
                 musicNum = index
                 topn.style.backgroundImage = "url('./images/0" + (index + 1) + ".jpg')"
                 audio.src = musics[index]
@@ -153,7 +173,6 @@
             var instantTime = e.clientX - main.offsetLeft - 28
             var x = e.offsetX
             move.style.width = x + 'px'
-
             audio.currentTime = instantTime
             document.body.onmousemove = function (e) {
                 e.preventDefault()
