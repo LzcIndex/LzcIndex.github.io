@@ -2,7 +2,11 @@
 var stage = document.querySelector('.stage');
 var startBtn = document.querySelector('.stage .game-start .btn');
 var gameInterface = document.querySelector('.game');
-
+var ranking = document.querySelector('.ranking')
+var dead = document.querySelector('.dead')
+var resurgence = document.querySelector('.dead .resurgence')
+var restart = document.querySelector('.dead .restart')
+ 
 var ourPlaneConfig = {
     path: 'our-plane.gif',
     boom: 'our-plane-boom.gif',
@@ -184,8 +188,15 @@ Emeny.prototype.checkBottomOver = function () {
 Game.prototype.createPlayers = function () {
 
     var newPlayer = new OurPlane(ourPlaneConfig, this.innerViewW / 2, (this.innerViewH - ourPlaneConfig.h));
+    newPlayer.score = (function(){
+        var num = 0;
+        return function(){
+            return num ++;
+        }
+    }());
     this.players.push(newPlayer);
     newPlayer.draw();
+    document.querySelector(".game .score .player1").style.display = "block";
 }
 //创建buff
 Game.prototype.createBuff = function (type) {
@@ -282,6 +293,8 @@ Game.prototype.checkBlood = function () {
             if (bullet.blood <= 0) {
                 gameInterface.removeChild(bullet.node);
                 bullets.splice(ib, 1);
+                var fenshu = player.score();
+                document.querySelectorAll(".game .score span")[index].innerText =  fenshu;
             }
         })
 
@@ -363,17 +376,21 @@ Game.prototype.start = function () {
 
     }, 30)
     this.state = 1;
+    ranking.style.marginTop = -ranking.offsetHeight + 'px';
+    dead.style.bottom = -dead.offsetHeight + 'px';
 }
 
 //暂停
 Game.prototype.pause = function () {
     clearInterval(this.timer);
     this.state = 0;
+    ranking.style.marginTop = '100px';
 }
 
 //结束
 Game.prototype.gameOver = function () {
     this.pause();
+    dead.style.bottom = '20%';
 }
 
 //触摸事件
@@ -407,3 +424,20 @@ startBtn.onclick = function () {
     game.createPlayers();
     game.start();
 }
+
+//重新开始
+restart.onclick = function(){
+    window.location.reload();
+}
+
+resurgence.onclick = function(){
+    //充值买命
+    game.players.forEach(function(player,index,players){
+        players[index].blood = 3;
+    })
+    dead.style.bottom = -dead.offsetHeight + "px";
+    }
+
+
+
+
