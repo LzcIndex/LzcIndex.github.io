@@ -166,6 +166,10 @@
             ((game.stageH - (game.stageH/2/1.5))/2),//放置的y
             game.stageW/2,
             game.stageH/2/1.5)
+
+            ctx.font = "30px Arial"
+            ctx.fillStyle = '#fff'
+            ctx.fillText(game.score, (game.stageW - (game.stageW/2))-5, ((game.stageH - (game.stageH/2))) + 52)
          }
         //生成随机数
         function randomNum(m, n) {
