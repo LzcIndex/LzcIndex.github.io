@@ -22,13 +22,13 @@ body {
         width: 400px;
         height: 600px;
         perspective: 1500px;
-       transform-origin: 50% 50% 150px;
+        transform-origin: 50% 50% 150px;
         background-size: cover;
         margin: 0 auto;
         position: relative;
         transform-style: preserve-3d;
         border-radius: 15px;
-        transition: all .3s;
+        // transition: all .3s;
         &::after {
            .mask-layout;
             background: rgb(65,65,65);
@@ -86,7 +86,7 @@ body {
                         transform: rotateY(-90deg) rotateX(90deg)
                     }
                 }
-                .chart-side{
+                .chart-side(){
                     content: '';
                     display: block;
                     box-sizing: border-box;
@@ -109,9 +109,11 @@ body {
     transform: rotateX(60deg);
     .mask{
         h3{
+            transition: all 0.3s;
             transform: translateZ(20px);
         }
         p{
+            transition: all 0.3s;
             transform: translateZ(20px);
         }
         .chart{

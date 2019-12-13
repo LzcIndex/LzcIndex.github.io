@@ -27,44 +27,56 @@
 <script>
     var stage = document.querySelector('.stage');
     var spans = document.querySelectorAll('.chart span');
-    
-    // document.body.onmousemove = function (event) {
-    //     var x = event.clientX - stage.offsetLeft - stage.offsetWidth;
-    //     var y = event.clientY - stage.offsetTop - stage.offsetHeight;
-    //     // document.body.style.perspectiveOrigin = x / 5 + 50 + "% " + (y / 5 + 50) + "%"
-    //     stage.style.transform = "rotateY(" + -x / 20 + "deg) rotateX(" + y / 20 + "deg)";
-    // }
-    document.body.onclick = function () { 
-        document.body.onmousemove = null;
-        stage.classList.toggle('active')
-        var list = Array.prototype.slice.call(stage.classList)
-        
-        if(list.indexOf('active')== 1){
-            spans.forEach(function (span,i) { 
-                var rundomNum = Math.floor(Math.random()*200+20)
-                span.querySelectorAll('i').forEach(function (iement,index) { 
-                   if(index > 0){
-                    iement.style.width = rundomNum + 'px'
-                    if(index == 1){
-                        iement.innerText = rundomNum - 20;
-                    }
-                   }else{
-                       iement.style.transform = ' translateZ('+ rundomNum + 'px)';
-                   }
-                 })
-             })
-        }else{
-            spans.forEach(function (span,i) { 
-                span.querySelectorAll('i').forEach(function (iement,index) { 
-                   if(index > 0){
-                    iement.style.width = 0 + 'px'
-                   }else{
-                       iement.style.transform = ' translateZ('+ 0 + 'px)';
-                   }
-                 })
-             })
+    var flag = true
+    document.body.onmousemove = function (event) {
+        if (flag) {
+            var x = event.clientX - stage.offsetLeft - stage.offsetWidth / 2;
+            var y = event.clientY - stage.offsetTop - stage.offsetHeight / 2;
+            // document.body.style.perspectiveOrigin = x / 5 + 25 + "% " + (y / 5 + 25) + "%"
+            stage.style.transform = "rotateY(" + -x / 20 + "deg) rotateX(" + y / 20 + "deg)";
+            stage.style.transition = "none";
         }
-     }
+    }
+    document.body.onclick = function () {
+       
+        stage.classList.toggle('active')
+        if (stage.className.indexOf('activ') !== -1) {
+            stage.style = ''
+            stage.style.transition = 'all 0.3s'
+            flag = false
+        } else {
+            // stage.style.transition = 'all 0.3s'
+            flag = true
+        }
+
+        var list = Array.prototype.slice.call(stage.classList)
+
+        if (list.indexOf('active') == 1) {
+            spans.forEach(function (span, i) {
+                var rundomNum = Math.floor(Math.random() * 200 + 20)
+                span.querySelectorAll('i').forEach(function (iement, index) {
+                    if (index > 0) {
+                        iement.style.width = rundomNum + 'px'
+                        if (index == 1) {
+                            iement.innerText = rundomNum - 20;
+                        }
+                    } else {
+                        iement.style.transform = ' translateZ(' + rundomNum + 'px)';
+                    }
+                })
+            })
+        } else {
+            spans.forEach(function (span, i) {
+                span.querySelectorAll('i').forEach(function (iement, index) {
+                    if (index > 0) {
+                        iement.style.width = 0 + 'px'
+                    } else {
+                        iement.style.transform = ' translateZ(' + 0 + 'px)';
+                    }
+                })
+            })
+        }
+    }
 
 </script>
 

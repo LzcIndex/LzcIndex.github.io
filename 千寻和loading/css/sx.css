@@ -17,7 +17,6 @@ body .stage {
   position: relative;
   transform-style: preserve-3d;
   border-radius: 15px;
-  transition: all 0.3s;
 }
 body .stage::after {
   content: '';
@@ -124,28 +123,15 @@ body .stage .mask .chart span i.front {
   width: 0px;
   transform: rotateY(-90deg) rotateX(90deg);
 }
-body .stage .mask .chart .chart-side {
-  content: '';
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform-origin: left bottom;
-  transition: all 1s;
-  text-align: right;
-  color: transparent;
-  background: linear-gradient(to left, #d4d4d4, lightblue);
-}
 .stage.active {
   transform: rotateX(60deg);
 }
 .stage.active .mask h3 {
+  transition: all 0.3s;
   transform: translateZ(20px);
 }
 .stage.active .mask p {
+  transition: all 0.3s;
   transform: translateZ(20px);
 }
 .stage.active .mask .chart span i.left {
