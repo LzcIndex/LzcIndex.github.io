@@ -57,8 +57,8 @@
             color: randomColor()
         }
 
-        var windowW = window.innerWidth <= 640?  window.innerWidth : 640  ;
-      
+        var windowW = window.innerWidth <= 640 ? window.innerWidth : 640;
+
         var game = {
             stageW: windowW,
             stageH: window.innerHeight,
@@ -80,12 +80,12 @@
         var again = {
             name: 'again_btn_png',
             w: (game.stageW) / 5,
-            h: ((file['start_btn_png'].h / file['start_btn_png'].w) * (game.stageW)/2),
+            h: ((file['start_btn_png'].h / file['start_btn_png'].w) * (game.stageW) / 2),
             x: (game.stageW - (game.stageW) / 5) / 2,
             y: game.stageH - 100
         }
 
-        
+
         var canvas = document.querySelector('canvas')
 
         var img = new Image()
@@ -139,24 +139,24 @@
 
             )
         }
-        function drawOverImage() { 
+        function drawOverImage() {
             ctx.drawImage(
-            img,
-            Math.abs((game.stageW - 512)/2),//开始的x
-            0,//开始的y
-            512,//剪多宽
-            385,//剪多高
-            (game.stageW - (game.stageW/2))/2,//放置的x
-            ((game.stageH - (game.stageH/2/1.5))/2),//放置的y
-            game.stageW/2,
-            game.stageH/2/1.5)
+                img,
+                Math.abs((game.stageW - 512) / 2),//开始的x
+                0,//开始的y
+                512,//剪多宽
+                385,//剪多高
+                (game.stageW - (game.stageW / 2)) / 2,//放置的x
+                ((game.stageH - (game.stageH / 2 / 1.5)) / 2),//放置的y
+                game.stageW / 2,
+                game.stageH / 2 / 1.5)
 
             drawBtn(again)
 
             ctx.font = "30px Arial"
             ctx.fillStyle = '#fff'
-            ctx.fillText(game.score, (game.stageW - (game.stageW/2))-5, ((game.stageH - (game.stageH/2))) + 52)
-         }
+            ctx.fillText(game.score, (game.stageW - (game.stageW / 2)) - 5, ((game.stageH - (game.stageH / 2))) + 52)
+        }
         //生成随机数
         function randomNum(m, n) {
             return Math.round((Math.random() * (n - m)) + m)
@@ -216,19 +216,19 @@
         var bollspeed = 3
         Boll.prototype.generateSpeed = function () {
             if (this.x > game.stageW) {
-                this.sx = -randomFloor(0,bollspeed);
+                this.sx = -randomFloor(0, bollspeed);
                 this.sy = randomFloor(-bollspeed, bollspeed)
             }
             if (this.x < 0) {
-                this.sx = randomFloor(0,bollspeed);
+                this.sx = randomFloor(0, bollspeed);
                 this.sy = randomFloor(-bollspeed, bollspeed)
             }
             if (this.y > game.stageH) {
-                this.sx = randomFloor(-bollspeed,bollspeed);
+                this.sx = randomFloor(-bollspeed, bollspeed);
                 this.sy = -randomFloor(0, bollspeed)
             }
             if (this.y < 0) {
-                this.sy = randomFloor(0,bollspeed);
+                this.sy = randomFloor(0, bollspeed);
                 this.sx = randomFloor(-bollspeed, bollspeed)
             }
         }
@@ -325,39 +325,57 @@
         }
 
         //排序
-        function sort(arr) { 
-            console.log(arr);
-            
-        var i = null
-        for(var n = 0;n < arr.length;n++){
-            for(var j = n+1;j<arr.length;j++){
-                if(arr[n].key < arr[j].key){
-                    i = arr[j]
-                    arr[j] = arr[n]
-                    arr[n] = i
+        function sort(arr) {
+            var i = null
+            for (var n = 0; n < arr.length; n++) {
+                for (var j = n + 1; j < arr.length; j++) {
+                    if (arr[n].key < arr[j].key) {
+                        i = arr[j]
+                        arr[j] = arr[n]
+                        arr[n] = i
+                    }
                 }
             }
         }
+
+        //统计超过多少玩家
+        function transcend(num,arr) { 
+            var sum = 0;
+            var overtop = 0
+            var percentage = 0
+            for(var i = 0;i<arr.length;i++){
+                sum+=arr[i].count
+                if(num == arr[i].key){
+                    overtop = sum;
+                }
+            } 
+            console.log(overtop,sum);
+            
+            percentage = parseInt((sum - overtop)/sum*100)
+            ctx.font = "16px Arial"
+            ctx.fillStyle = '#fff'
+            ctx.fillText(percentage, (game.stageW - (game.stageW / 2))+4, ((game.stageH - (game.stageH / 2))) + 116)
          }
 
         //游戏结束
         function gameover() {
             clearInterval(timer)
             drawOverImage()
-            canvas.onclick = function (e) { 
-            var xCrash = e.offsetX >= again.x && e.offsetX <= again.x + again.w
-            var yCrash = e.offsetY >= again.y && e.offsetY <= again.y + again.h
-            if(xCrash && yCrash){
-            window.location.reload()
+            canvas.onclick = function (e) {
+                var xCrash = e.offsetX >= again.x && e.offsetX <= again.x + again.w
+                var yCrash = e.offsetY >= again.y && e.offsetY <= again.y + again.h
+                if (xCrash && yCrash) {
+                    window.location.reload()
+                }
             }
-             }
-             //存成绩
-            if (localStorage.score) {            
-                var oldArr = JSON.parse(localStorage.score)               
+            //存成绩
+            if (localStorage.score) {
+                var oldArr = JSON.parse(localStorage.score)
                 for (var i = 0; i < oldArr.length; i++) {
-                    for (var keyn in oldArr[i]) {                                                         
-                        if (game.score == oldArr[i][keyn]) {                     
+                    for (var keyn in oldArr[i]) {
+                        if (game.score == oldArr[i][keyn] && keyn == 'key') {
                             oldArr[i].count++
+                            transcend(game.score,oldArr)
                             localStorage.score = JSON.stringify(oldArr)
                             return;
                         }
@@ -371,16 +389,20 @@
                 oldArr.push(newScore)
                 //插入新值时重新排序
                 sort(oldArr)
+                transcend(game.score,oldArr)
                 localStorage.score = JSON.stringify(oldArr)
             } else {
+                var arrn = []
                 var newScore = {}
                 newScore.key = game.score
                 newScore.count = 1
+                arrn.push(newScore)
+                transcend(game.score,arrn)
                 localStorage.score = JSON.stringify([newScore])
             }
 
-            
-            
+
+
         }
 
         // //游戏结束界面
@@ -396,6 +418,8 @@
 
             if (Math.abs(e.offsetX - game.center.x) < 5 && Math.abs(e.offsetY - game.center.y) < 5) {
                 canvas.onmousemove = function (e) {
+                    e.preventDefault()
+
                     o.x = e.offsetX;
                     o.y = e.offsetY
                 }
@@ -404,6 +428,7 @@
 
             if (navigator.maxTouchPoints) {
                 canvas.ontouchmove = function (e) {
+                    e.preventDefault()
                     o.x = e.touches[0].pageX
                     o.y = e.touches[0].pageY
                 }
@@ -423,7 +448,7 @@
             }
         }, 30)
 
-        
+
 
 
     </script>

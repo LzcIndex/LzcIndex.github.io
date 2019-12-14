@@ -6,18 +6,18 @@ var ranking = document.querySelector('.ranking')
 var dead = document.querySelector('.dead')
 var resurgence = document.querySelector('.dead .resurgence')
 var restart = document.querySelector('.dead .restart')
- 
+var playerId = document.getElementById('playerId')
 var ourPlaneConfig = {
     path: 'our-plane.gif',
     boom: 'our-plane-boom.gif',
-    blood: 5,
+    blood: 3,
     w: 66,
     h: 80,
     delay: 30
 };
 
 var buffConfig = {
-    path: "buff.jpg",
+    path: "buff.png",
     w: 46,
     h: 60,
     speed: 3,
@@ -135,9 +135,7 @@ OurPlane.prototype.createBullet = function () {
         newBullet2.draw();
         newBullet3.draw();
         that.bullets.push(newBullet2, newBullet3);
-        setTimeout(function () {
-            that.buff = false;
-        }, 10000)
+       
     }
 
 }
@@ -188,12 +186,7 @@ Emeny.prototype.checkBottomOver = function () {
 Game.prototype.createPlayers = function () {
 
     var newPlayer = new OurPlane(ourPlaneConfig, this.innerViewW / 2, (this.innerViewH - ourPlaneConfig.h));
-    newPlayer.score = (function(){
-        var num = 0;
-        return function(){
-            return num ++;
-        }
-    }());
+    newPlayer.score = 0;
     this.players.push(newPlayer);
     newPlayer.draw();
     document.querySelector(".game .score .player1").style.display = "block";
@@ -267,11 +260,18 @@ Game.prototype.checkAllCollision = function () {
             }
         })
     });
+    //吃buff
     this.players.forEach(function (player, ip, players) {
+         
         that.buffs.forEach(function (buff, iff, buffs) {
             if (buff.checkCollision(player)) {
-                buff.blood = 0;
+                //吃到新buff重新计算buff持续时间
+                clearTimeout(player.time)
+                buff.blood = 0;              
                 player.buff = true;
+                player.time = setTimeout(function () {
+                    player.buff = false;
+                }, 10000)
             }
         })
     })
@@ -293,8 +293,8 @@ Game.prototype.checkBlood = function () {
             if (bullet.blood <= 0) {
                 gameInterface.removeChild(bullet.node);
                 bullets.splice(ib, 1);
-                var fenshu = player.score();
-                document.querySelectorAll(".game .score span")[index].innerText =  fenshu;
+               player.score++
+                document.querySelectorAll(".game .score span")[index].innerText =  player.score
             }
         })
 
@@ -380,6 +380,75 @@ Game.prototype.start = function () {
     dead.style.bottom = -dead.offsetHeight + 'px';
 }
 
+     //排序
+     function sort(arr) {
+        var i = null
+        for (var n = 0; n < arr.length; n++) {
+            for (var j = n + 1; j < arr.length; j++) {
+                if (arr[n].key < arr[j].key) {
+                    i = arr[j]
+                    arr[j] = arr[n]
+                    arr[n] = i
+                }
+            }
+        }
+    }
+
+    //统计超过多少玩家
+    function transcend(num,arr) { 
+        var sum = 0;
+        var overtop = 0
+        var percentage = 0
+        for(var i = 0;i<arr.length;i++){
+            sum+=arr[i].count
+            if(num == arr[i].key){
+                overtop = sum;
+            }
+        }
+        percentage = parseInt((sum - overtop)/sum*100)
+       
+     }
+
+//存储成绩
+function storageScore() {
+    game.players.forEach(function (player,index) { 
+        if (localStorage.planeScore) {
+            var oldArr = JSON.parse(localStorage.planeScore)
+            for (var i = 0; i < oldArr.length; i++) {
+                for (var keyn in oldArr[i]) {
+                    if (player.score == oldArr[i][keyn] && keyn == 'key') {
+                        oldArr[i].count++
+                        transcend(player.score,oldArr)
+                        localStorage.planeScore = JSON.stringify(oldArr)
+                        return;
+                    }
+                }
+    
+            }
+            //如果都不相等就新建
+            var newScore = {}
+            newScore.key = player.score
+            newScore.count = 1
+            newScore.playerName = player.playName
+            oldArr.push(newScore)
+            //插入新值时重新排序
+            sort(oldArr)
+            transcend(player.score,oldArr)
+            localStorage.planeScore = JSON.stringify(oldArr)
+        } else {
+            var arrn = []
+            var newScore = {}
+            newScore.key = player.score
+            newScore.count = 1
+            newScore.playerName = player.playName
+            arrn.push(newScore)
+            transcend(player.score,arrn)
+            localStorage.planeScore = JSON.stringify([newScore])
+        }
+     })
+  }
+
+
 //暂停
 Game.prototype.pause = function () {
     clearInterval(this.timer);
@@ -391,6 +460,7 @@ Game.prototype.pause = function () {
 Game.prototype.gameOver = function () {
     this.pause();
     dead.style.bottom = '20%';
+    storageScore()
 }
 
 //触摸事件
@@ -422,7 +492,9 @@ startBtn.onclick = function () {
     stage.style.marginLeft = '-100%';
     game = new Game();
     game.createPlayers();
+    game.players[0].playName = playerId.value
     game.start();
+    
 }
 
 //重新开始
