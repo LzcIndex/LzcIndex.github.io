@@ -3,6 +3,7 @@ var stage = document.querySelector('.stage');
 var startBtn = document.querySelector('.stage .game-start .btn');
 var gameInterface = document.querySelector('.game');
 var ranking = document.querySelector('.ranking')
+var tr = ranking.querySelectorAll('tr')
 var dead = document.querySelector('.dead')
 var resurgence = document.querySelector('.dead .resurgence')
 var restart = document.querySelector('.dead .restart')
@@ -135,7 +136,7 @@ OurPlane.prototype.createBullet = function () {
         newBullet2.draw();
         newBullet3.draw();
         that.bullets.push(newBullet2, newBullet3);
-       
+
     }
 
 }
@@ -251,23 +252,21 @@ Game.prototype.checkAllCollision = function () {
                 }
             })
             if (emeny.checkCollision(player) && !player.die) {
-                console.log(player.delay);
-                          
                 emeny.blood = 0;
                 player.blood--;
-                player.die = true; 
-                player.node.src = game.srcPath + player.boom;   
+                player.die = true;
+                player.node.src = game.srcPath + player.boom;
             }
         })
     });
     //吃buff
     this.players.forEach(function (player, ip, players) {
-         
+
         that.buffs.forEach(function (buff, iff, buffs) {
             if (buff.checkCollision(player)) {
                 //吃到新buff重新计算buff持续时间
                 clearTimeout(player.time)
-                buff.blood = 0;              
+                buff.blood = 0;
                 player.buff = true;
                 player.time = setTimeout(function () {
                     player.buff = false;
@@ -293,8 +292,8 @@ Game.prototype.checkBlood = function () {
             if (bullet.blood <= 0) {
                 gameInterface.removeChild(bullet.node);
                 bullets.splice(ib, 1);
-               player.score++
-                document.querySelectorAll(".game .score span")[index].innerText =  player.score
+                player.score++
+                document.querySelectorAll(".game .score span")[index].innerText = player.score
             }
         })
 
@@ -380,73 +379,131 @@ Game.prototype.start = function () {
     dead.style.bottom = -dead.offsetHeight + 'px';
 }
 
-     //排序
-     function sort(arr) {
-        var i = null
-        for (var n = 0; n < arr.length; n++) {
-            for (var j = n + 1; j < arr.length; j++) {
-                if (arr[n].key < arr[j].key) {
-                    i = arr[j]
-                    arr[j] = arr[n]
-                    arr[n] = i
-                }
+//排序
+function sort(arr) {
+    var i = null
+    for (var n = 0; n < arr.length; n++) {
+        for (var j = n + 1; j < arr.length; j++) {
+            if (arr[n].key < arr[j].key) {
+                i = arr[j]
+                arr[j] = arr[n]
+                arr[n] = i
             }
         }
     }
+}
 
-    //统计超过多少玩家
-    function transcend(num,arr) { 
-        var sum = 0;
-        var overtop = 0
-        var percentage = 0
-        for(var i = 0;i<arr.length;i++){
-            sum+=arr[i].count
-            if(num == arr[i].key){
-                overtop = sum;
-            }
+//统计超过多少玩家
+function transcend(num, arr) {
+    var sum = 0;
+    var overtop = 0
+    var percentage = 0
+    var arrlen = arr.length
+    for (var i = 0; i < arr.length; i++) {
+        sum += arr[i].count
+        if (num == arr[i].key) {
+            overtop = sum;
         }
-        percentage = parseInt((sum - overtop)/sum*100)
-       
-     }
+    }
+    console.log(sum, overtop);
+
+    percentage = parseInt((sum - overtop) / sum * 100)
+
+    arrlen = arrlen > tr.length-1 ? tr.length-1:arrlen
+    for(var i = 0;i < arrlen;i++){    
+      switch(i+1){ 
+        case 1:{
+            tr[1].querySelectorAll('td')[0].innerText = arr[0].playerName
+            tr[1].querySelectorAll('td')[1].innerText = arr[0].key
+            tr[1].querySelectorAll('td')[2].innerText = 1
+            break;
+        }
+        
+        case 2:{
+            tr[2].querySelectorAll('td')[0].innerText = arr[1].playerName
+            tr[2].querySelectorAll('td')[1].innerText = arr[1].key
+            tr[2].querySelectorAll('td')[2].innerText = 2
+            break;
+        }
+        case 3:{
+            tr[3].querySelectorAll('td')[0].innerText = arr[2].playerName
+            tr[3].querySelectorAll('td')[1].innerText = arr[2].key
+            tr[3].querySelectorAll('td')[2].innerText = 3
+            break;
+        }
+      }
+}
+
+    // tr.forEach(function (elemt, index, trs) {
+    //     if (index != 0) {
+    //         elemt.querySelectorAll("td").forEach(function (td, tdindex, tds) {
+    //             for (var i = 0; i < trs.length - 1; i++) {
+    //                 for (var pron in arr[i]) {
+    //                     td.innerText = arr[i][pron]
+    //                     if (pron == 'count') {
+    //                         td.innerText = percentage
+    //                     }
+    //                 }
+    //             }
+    //         })
+    //     }
+    // })
+}
 
 //存储成绩
 function storageScore() {
-    game.players.forEach(function (player,index) { 
+    game.players.forEach(function (player, index) {
         if (localStorage.planeScore) {
             var oldArr = JSON.parse(localStorage.planeScore)
             for (var i = 0; i < oldArr.length; i++) {
-                for (var keyn in oldArr[i]) {
-                    if (player.score == oldArr[i][keyn] && keyn == 'key') {
-                        oldArr[i].count++
-                        transcend(player.score,oldArr)
+                if (player.playName == oldArr[i].playerName) {
+                    //新纪录
+                    if (player.score > oldArr[i].key) {
+                        console.log("新纪录");
+                        oldArr[i].key = player.score
+                        sort(oldArr)
+                        transcend(player.score, oldArr)
                         localStorage.planeScore = JSON.stringify(oldArr)
                         return;
                     }
+                    else {
+                        //没有破记录
+                        transcend(player.score, oldArr)
+                        return;
+                    }
                 }
-    
+                // for (var keyn in oldArr[i]) {
+                //     if (player.score == oldArr[i][keyn] && keyn == 'key') {
+                //         oldArr[i].count++
+                //         transcend(player.score,oldArr)
+                //         localStorage.planeScore = JSON.stringify(oldArr)
+                //         return;
+                //     }
+                // }
+
             }
             //如果都不相等就新建
             var newScore = {}
+            newScore.playerName = player.playName
             newScore.key = player.score
             newScore.count = 1
-            newScore.playerName = player.playName
             oldArr.push(newScore)
             //插入新值时重新排序
             sort(oldArr)
-            transcend(player.score,oldArr)
+            transcend(player.score, oldArr)
             localStorage.planeScore = JSON.stringify(oldArr)
         } else {
             var arrn = []
             var newScore = {}
+            newScore.playerName = player.playName
             newScore.key = player.score
             newScore.count = 1
-            newScore.playerName = player.playName
             arrn.push(newScore)
-            transcend(player.score,arrn)
+            transcend(player.score, arrn)
             localStorage.planeScore = JSON.stringify([newScore])
         }
-     })
-  }
+    })
+}
 
 
 //暂停
@@ -494,21 +551,22 @@ startBtn.onclick = function () {
     game.createPlayers();
     game.players[0].playName = playerId.value
     game.start();
-    
+
 }
 
 //重新开始
-restart.onclick = function(){
+restart.onclick = function () {
+
     window.location.reload();
 }
 
-resurgence.onclick = function(){
+resurgence.onclick = function () {
     //充值买命
-    game.players.forEach(function(player,index,players){
+    game.players.forEach(function (player, index, players) {
         players[index].blood = 3;
     })
     dead.style.bottom = -dead.offsetHeight + "px";
-    }
+}
 
 
 
