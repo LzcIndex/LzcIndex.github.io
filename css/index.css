@@ -1,0 +1,225 @@
+body {
+  margin: 0;
+  background: url('../images/indexBg.jpg');
+  background-attachment: fixed;
+}
+h1 {
+  font-family: cursive;
+  margin: 0 0 20px 0;
+  padding: 0;
+  font-size: 3.5em;
+  text-align: left;
+}
+@media (max-width: 1500px) {
+  h1 {
+    font-size: 3.5em;
+  }
+}
+@media (max-width: 1200px) {
+  h1 {
+    font-size: 2.8em;
+  }
+}
+@media (max-width: 992px) {
+  h1 {
+    font-size: 1.8em;
+  }
+}
+h2 {
+  /* text-indent: 20px; */
+  text-align: left;
+  font-family: xxx;
+  font-size: 22px;
+}
+@media (max-width: 1500px) {
+  h2 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 1200px) {
+  h2 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 992px) {
+  h2 {
+    font-size: 16px;
+  }
+}
+h4 {
+  font-family: xxx;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+p {
+  font-size: 15px;
+  padding: 0;
+  margin: 0;
+  font-family: xxx;
+  line-height: 1.9;
+}
+.main {
+  margin: 0 auto;
+  width: 70%;
+  text-align: center;
+}
+.main .content {
+  box-shadow: 10px 0px 5px -6px #999;
+  margin-bottom: 2em;
+}
+.main .content .stage {
+  padding: 0 30px;
+  border-left: 10px solid #e9e9e9;
+  text-align: left;
+}
+.main .content .stage .pic {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.main .content .stage .pic a {
+  width: 48%;
+  /* transform-style: preserve-3d; */
+  display: inline-block;
+  position: relative;
+  margin: 5px;
+}
+.main .content .stage .pic a:hover img {
+  animation: move 1s ;
+}
+.main .content .stage .pic a:hover + .about-project {
+  opacity: 1;
+}
+.main .content .stage .pic img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px #999;
+}
+@media (max-width: 1500px) {
+  .main {
+    width: 50%;
+  }
+}
+@media (max-width: 1200px) {
+  .main {
+    width: 70%;
+  }
+  .main p {
+    font-size: 13px;
+  }
+  .main .content .stage .pic a {
+    width: 50%;
+  }
+  .main .content .stage .pic .about-project {
+    padding: 2px 5px;
+  }
+}
+@media (max-width: 992px) {
+  .main {
+    width: 80%;
+    margin-left: 10%;
+  }
+  .main p {
+    font-size: 13px;
+  }
+  .main .content .stage .pic a {
+    width: 40%;
+  }
+  .main .content .stage .pic .about-project {
+    padding: 1px 2px;
+  }
+}
+@media (max-width: 768px) {
+  .main {
+    width: 80%;
+    margin-left: 12%;
+  }
+  .main p {
+    font-size: 10px;
+  }
+}
+@media (max-width: 576px) {
+  .main {
+    margin-left: 15%;
+  }
+}
+.aboutAuthor {
+  width: 8%;
+  height: 100%;
+  background: black;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+.aboutAuthor .authorPic {
+  width: 50%;
+  margin: 1.5em auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.aboutAuthor .authorPic img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+.aboutAuthor ul.list {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 2em 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+.aboutAuthor ul.list li {
+  line-height: 5em;
+}
+.aboutAuthor ul.list li > a {
+  text-decoration: none;
+  color: white;
+}
+@media (max-width: 1500px) {
+  .aboutAuthor {
+    width: 8%;
+  }
+}
+@media (max-width: 1200px) {
+  .aboutAuthor {
+    width: 10%;
+  }
+}
+@media (max-width: 768px) {
+  .aboutAuthor {
+    width: 12%;
+    font-size: 12px;
+  }
+}
+@media (max-width: 576px) {
+  .aboutAuthor {
+    width: 15%;
+    font-size: 10px;
+  }
+}
+@keyframes move {
+  10% {
+    transform: scaleX(1.3) scaleY(0.7);
+  }
+  30% {
+    transform: scaleX(0.7) scaleY(1.3);
+  }
+  50% {
+    transform: scaleX(1.2) scaleY(0.8);
+  }
+  70% {
+    transform: scaleX(1) scaleY(1);
+  }
+}
+@font-face {
+  font-family: 'xxx';
+  src: url('Merienda-Bold.eot');
+  src: local('Merienda Regular'), local('Merienda-Bold'), url('../Merienda-Bold.ttf') format('truetype'), url('Merienda-Bold.svg#fontname') format('svg');
+}
+/*# sourceMappingURL=./index.css.map */
