@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+        html{
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            height: 200%;
+            background: #E43;
+            padding-top: 100px;
+        }
+
+        .stage {
+
+            position: relative;
+            margin: 0 auto;
+            width: 800px;
+            height: 470px;
+            background: white;
+            box-shadow: 3px 3px 10px black;
+        }
+
+        .stage div {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .stage .pic1 {
+            background: url('./images/b1.jpg') no-repeat;
+        }
+
+        .stage .pic2 {
+            height: 445px;
+            border-top: 1px dashed white;
+            background: url('./images/b2.jpg') no-repeat;
+            background-position: bottom center;
+        }
+
+        .stage .ball {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            background: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .stage .ball:hover {
+            background: black;
+        }
+
+
+
+
+        .warp{
+            position: relative;
+            width: 690px;
+            height: 600px;
+            margin: 150px auto;
+            box-shadow: 3px 3px 10px black;
+            margin-bottom: 0;
+        }
+        .warp div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            /* transition: all .5s; */
+        }
+        .warp .big1{
+            width: 100%;
+            background: url('./images/2eo86ew.jpg');
+        }
+        .warp .big2{
+            width: 60%;
+            background: url('./images/15i68sz.jpg');
+        }
+        .warp .big3{
+            width: 30%;
+            background: url('./images/2ppni55.jpg');
+        }
+        .warp .tuo1{
+            position: absolute;
+            top: 0;
+            left: 30%;
+            width: 7px;
+            height: 100%;
+            background: #FFAB91;
+
+        }
+        .warp .tuo2{
+            position: absolute;
+            top: 0;
+            left: 60%;
+            width: 7px;
+            height: 100%;
+            background: #FFAB91;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stage">
+        <div class="pic1"></div>
+        <div class="pic2"></div>
+        <span class="ball"></span>
+    </div>
+
+    <div class="warp">
+        <div class="big1"></div>
+        <div class="big2"></div>
+        <div class="big3"></div>
+        <div class="tuo1"></div>
+        <div class="tuo2"></div>
+    </div>
+
+
+
+
+    <script>
+      
+
+
+
+        $('.warp .tuo1').on('mousedown',function (e) { 
+            e.preventDefault()
+            $('.warp').on('mousemove',function (e) { 
+                e.preventDefault()
+                var x = (e.pageX || e.clientX) - $(this).offset().left;
+                var y = (e.pageY || e.clientY) - $(this).offset().top;
+                $('.warp .big3').css('width' , x);
+                $('.warp .tuo1').css('left',x)
+                var n = parseInt($('.tuo2').css('left'))
+                if(n - x <= 3 ){
+                    $('.warp .big2').css('width' , x+3);
+                $('.warp .tuo2').css('left',x+3)
+                }
+             })
+         })
+         $('body').on('mouseup',function (e) { 
+            e.preventDefault()
+            $('.warp').unbind('mousemove')
+          })
+
+          $('.warp .tuo2').on('mousedown',function (e) { 
+            e.preventDefault()
+            $('.warp').on('mousemove',function (e) { 
+                e.preventDefault()
+                var x = (e.pageX || e.clientX) - $(this).offset().left;
+                var y = (e.pageY || e.clientY) - $(this).offset().top;
+                $('.warp .big2').css('width' , x);
+                $('.warp .tuo2').css('left',x)
+                var n = parseInt($('.tuo1').css('left'))
+                if(x - n <= 3 ){
+                   
+                    
+                    $('.warp .big3').css('width' , x-3);
+                $('.warp .tuo1').css('left',x-3)
+                }
+             })
+         })
+         $('body').on('mouseup',function (e) { 
+            e.preventDefault()
+            $('.warp').unbind('mousemove')
+          })
+
+
+
+
+          var h = $('.pic2').height()
+        $('.ball').mousedown(function (e) {
+            e.preventDefault()
+            $(".stage").mousemove(function (e) {
+                e.preventDefault()
+                var x = (e.pageX || e.clientX) - $(this).offset().left;
+                var y = (e.pageY || e.clientY) - $(this).offset().top;
+                console.log(e.clientY,$(this).offset().top);
+                
+                x = x < 0 ? 0:x;
+                x = x > 800 ? 800:x;
+                y = y < 25 ? 25:y;
+                y = y > 470 ? 470:y;
+                $('.ball').css({
+                    top: y - $('.ball').height() / 2,
+                    left: x - $('.ball').width() / 2
+                })
+                $('.pic2').css('height',(h - y)+25)
+            })
+
+        })
+        $("body").mouseup(function (e) {
+            e.preventDefault()
+            $(".stage").unbind('mousemove')
+        })
+    </script>
+</body>
+
+</html>

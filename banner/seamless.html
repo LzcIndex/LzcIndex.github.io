@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>无缝轮播简略版</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/minireset.css/0.0.2/minireset.min.css" />
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <style>
+       html,body{
+           height: 100%;
+       }
+        .swiper {
+            width: 800px;
+            background: lightblue;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .swiper .content {
+            width: 700%;
+            overflow: hidden;
+            margin-left: -100%;
+            /* transition: all 0.3s; */
+        }
+
+        .swiper .content li {
+            width: 800px;
+            float: left;
+        }
+
+        .swiper .content li img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .swiper .pagenation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .swiper .pagenation span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: white;
+            display: inline-block;
+            line-height: 20px;
+            margin: 0 5px;
+        }
+
+        .swiper .pagenation span.active {
+            background: orange;
+        }
+
+        .controler {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .controler .prev {
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+            float: left;
+        }
+
+        .controler .next {
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+            color: white;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper">
+        <ul class="content">
+            <li>
+                <img src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201908/jiaoben6983/images/5.jpg" alt="" />
+            </li>
+            <li>
+                <img src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201908/jiaoben6983/images/1.jpg" alt="" />
+            </li>
+            <li>
+                <img src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201908/jiaoben6983/images/2.jpg" alt="" />
+            </li>
+            <li>
+                <img src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201908/jiaoben6983/images/3.jpg" alt="" />
+            </li>
+            <li>
+                <img src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201908/jiaoben6983/images/4.jpg" alt="" />
+            </li>
+            <li>
+                <img src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201908/jiaoben6983/images/5.jpg" alt="" />
+            </li>
+            <li>
+                <img src="http://demo.sc.chinaz.net/Files/DownLoad/webjs1/201908/jiaoben6983/images/1.jpg" alt="" />
+            </li>
+        </ul>
+        <div class="pagenation"></div>
+        <div class="controler">
+            <span class="prev"><</span>
+            <span class="next">></span>
+        </div>
+    </div>
+    <script>
+        var current = 0;
+        var canClick = true;
+        var lisLen = $(".content li").length;
+        for (var i = 0; i < lisLen - 2; i++) {
+            var dotJq = i == 0 ? $("<span class='active'></span>") : $("<span></span>");
+            dotJq.appendTo('.pagenation').click(function () {
+                $('.content')[0].style.transition = 'all 1s'
+                if(canClick){
+                    canClick = false
+                    current = $(this).index()
+                showPic();
+                }
+                
+            })
+        }
+
+        function nextPic() {
+            if (canClick) {
+                canClick = false;
+                current = current >= 5 ? 0 : ++current;
+                $('.content')[0].style.transition = 'all 1s'
+                showPic();
+            }
+        }
+
+        function prevPic() {
+            if (canClick) {
+                canClick = false;
+                current = current < 0 ? 4 : --current;
+                $('.content')[0].style.transition = 'all 1s'
+                showPic();
+            }
+        }
+
+        $(".controler .prev").click(prevPic)
+        $(".controler .next").click(nextPic)
+
+        function showPic() {
+            $('.content')[0].style.marginLeft = (current + 1) * -100 + '%';
+            $('.content')[0].addEventListener('transitionend', function () {
+                canClick = true;
+                if (current == 5) {
+                    this.style.transition = 'none'
+                    current = 0;
+                    showPic();
+
+                }
+                if (current == -1) {
+                    this.style.transition = 'none'
+                    current = 4;
+                    showPic();
+                }
+            })
+            $('.swiper .pagenation span').eq(current).addClass('active').siblings().removeClass('active')
+        }
+
+    var timer = setInterval(nextPic,2000);
+        $('.swiper').mouseenter(function () { 
+            clearInterval(timer);
+         }).mouseleave(function () { 
+            timer = setInterval(nextPic,2000);
+          })
+    </script>
+
+</body>
+
+</html>

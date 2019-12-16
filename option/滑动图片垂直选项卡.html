@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,
+        body{
+        height: 100%;
+        background: #1F1F1F;
+        }
+        .main{
+            width: 90%;
+            height: 100%;
+            margin: 0 auto;
+           
+        }
+        .main::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .main .left{
+            float: left;
+            width: 20%;
+            height:95%;
+            border-radius: 10px;
+            background: #5C5E67;
+        }
+        .main .left .list{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .main .left .list li{
+            line-height: 71px;
+            text-align: center;
+            color: white;
+            transition: all .3s;
+            border-bottom: 1px solid black;
+        }
+        .main .left .list li:first-child{
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .main .left .list li:last-child{
+            border:none;
+        }
+        .main .left .list li.active{
+            line-height: 111px;
+            background: #009fe9;
+        }
+        .main .right{
+            width: 75%;
+            height: 100%;
+            float: left;
+            margin-left: 4%;
+            overflow: hidden;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, .5);
+        }
+        .main .right div{
+            transition: all .5s;
+            width: 100%;
+            height: 630px;
+            background: black;
+            padding: 85px 0;
+            
+        }
+        .main .right div img{
+            display: block;
+            width: 100%;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="left">
+            <ul class="list">
+                <li class="active">tab1</li>
+                <li>tab2</li>
+                <li>tab3</li>
+                <li>tab4</li>
+                <li>tab5</li>
+                <li>tab6</li>
+                <li>tab7</li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="active"><img src="./images/a1.png" alt=""></div>
+            <div><img src="./images/a2.png" alt=""></div>
+            <div><img src="./images/a3.png" alt=""></div>
+            <div><img src="./images/a4.png" alt=""></div>
+            <div><img src="./images/a5.png" alt=""></div>
+            <div><img src="./images/a6.png" alt=""></div>
+            <div><img src="./images/a7.png" alt=""></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+    $('.main .left .list li').mousemove(function(){
+        var num = $(this).index();
+        $(this).addClass('active').siblings().removeClass('active');
+        $('.right .active').css('margin-top',num*-800 + 'px')
+
+    })
+    
+    
+    </script>
+</body>
+</html>

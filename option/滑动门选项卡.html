@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('./65.jpg') no-repeat;
+            background-position: center;
+        }
+
+        .main {
+            width: 50%;
+            margin: 150px auto;
+
+        }
+
+        .main::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .main .left {
+            width: 10%;
+            float: left;
+        }
+
+        .main .left ul.list {
+            margin:0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            height: 300px;
+            background: rgba(0, 0, 0, .3);
+        }
+        .main .left ul.list li{
+            cursor: pointer;
+            line-height: 30px;
+            color: white;
+        }
+        .main .left ul.list li.active{
+            background: #0094EA;
+        }
+        .main .right {
+            width: 85%;
+            float: right;
+        }
+        .main .right .view{
+            width: 100%;
+            overflow: hidden;
+            height: 300px;
+        }
+        .main .right .view .one{
+           background: url('./images/first.jpg');
+           background-size: cover;
+           background-position: center;
+           background-clip:content-box;
+        }
+        .main .right .view .two{
+           background: url('./images/news.jpg');
+           background-size: cover;
+           background-position: center;
+           background-clip:content-box;
+        }
+        .main .right .view .three{
+           background: url('./images/boll.jpg');
+           background-size: cover;
+           background-position: center;
+           background-clip:content-box;
+        }
+        .main .right .view .four{
+           background: url('./images/music.jpg');
+           background-size: cover;
+           background-position: center;
+           background-clip:content-box;
+        }
+        .main .right .view .five{
+           background: url('./images/dp.jpg');
+           background-size: cover;
+           background-position: center;
+           background-clip:content-box;
+        }
+        
+        .main .right .view div{
+            transition: all .7s;
+            height: 280px;
+            border: 10px solid rgba(0, 0, 0, .3);
+            
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="left">
+            <ul class="list">
+                <li class="active">导航</li>
+                <li>新闻</li>
+                <li>世界杯</li>
+                <li>音乐</li>
+                <li>彩票</li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="view">
+                <div class="one">1111</div>
+                <div class="two"></div>
+                <div class="three"></div>
+                <div class="four"></div>
+                <div class="five"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $('.main .left ul.list li').mousemove(function(){
+
+            var num = $(this).index();
+
+            $(this).addClass('active').siblings().removeClass('active');
+            
+            $('.view .one').css('margin-Top',num*-300 + 'px')
+
+        })
+    
+    
+    
+    </script>
+</body>
+
+</html>

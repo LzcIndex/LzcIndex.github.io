@@ -1,0 +1,642 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+header {
+  background: url('../imges/banner.jpg') no-repeat;
+  background-position: top center;
+  background-size: cover;
+  padding-top: 14px;
+}
+header .nav {
+  width: 1140px;
+  overflow: hidden;
+  margin: 0 auto;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  line-height: 60px;
+}
+header .nav ul.meun {
+  overflow: hidden;
+  float: left;
+}
+header .nav ul.meun li {
+  float: left;
+  margin: 0 15px;
+}
+header .nav ul.meun li a {
+  color: white;
+  transition: all 1s;
+}
+header .nav ul.meun li a:hover {
+  border-top: 4px solid yellow;
+  color: yellow;
+}
+header .nav ul.meun li:after {
+  content: '/';
+  margin-left: 15px;
+}
+header .nav ul.meun li:first-child a {
+  border-top: 4px solid yellow;
+  color: yellow;
+}
+header .nav ul.meun li:last-child:after {
+  content: '';
+}
+header .nav form.search {
+  float: right;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-right: 15px;
+}
+header .nav form.search input:first-child {
+  padding: 8px 10px;
+  outline: none;
+  color: white;
+  border: 1px solid white;
+  background: transparent;
+}
+header .nav form.search input:last-child {
+  position: absolute;
+  right: 8px;
+  top: 20px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  text-indent: -10em;
+  background: url('../imges/search.png') no-repeat;
+  background-position: center;
+}
+header .nav form.search input::placeholder {
+  color: white;
+}
+header .logo {
+  transform: scale(0);
+}
+header .logo h1 {
+  padding: 0;
+  width: 200px;
+  margin: 100px auto;
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
+  color: white;
+  font-size: 48px;
+}
+header .logo.active {
+  transition: all 1s;
+  transform: scale(1);
+}
+header .grid {
+  position: relative;
+  left: 0;
+  top: 120px;
+  width: 1140px;
+  margin: 0 auto;
+}
+header .grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+header .grid li {
+  position: relative;
+  transition: all 0.5s;
+  width: 25%;
+  float: left;
+  text-align: center;
+}
+header .grid li div.card {
+  background-color: #16A667;
+  margin: 0 15px;
+  padding: 20px 15px;
+  color: white;
+}
+header .grid li div.card img {
+  border-radius: 50%;
+  border: 5px solid white;
+  padding: 10px;
+}
+header .grid li div.card img:hover {
+  transform: rotateY(360deg);
+  transition: all 1s;
+}
+header .grid li div.card h3 {
+  margin: 0;
+  padding: 0;
+  line-height: 2em;
+}
+header .grid li div.card p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+header .grid li:first-child {
+  left: -33%;
+}
+header .grid li:nth-child(2) {
+  bottom: -500px;
+}
+header .grid li:nth-child(3) {
+  top: -500px;
+}
+header .grid li:last-child {
+  left: 33%;
+}
+header .grid li.active {
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+section.about {
+  background-color: #eee;
+  padding: 210px 0 56px 0;
+}
+section.about div.subject {
+  width: 1140px;
+  margin: 0 auto;
+}
+section.about div.subject h3 {
+  margin: 0 0 42px 0;
+  padding: 0;
+  font-size: 2.5em;
+}
+section.about div.subject div.content {
+  overflow: hidden;
+}
+section.about div.subject div.content div.imge {
+  position: relative;
+  left: 1140px;
+  transition: all 0.4s;
+  width: 40%;
+  float: left;
+}
+section.about div.subject div.content div.imge img {
+  width: 100%;
+}
+section.about div.subject div.content .imge.active {
+  left: 0;
+}
+section.about div.subject div.content div.introduce {
+  position: relative;
+  right: 1140px;
+  transition: all 0.4s;
+  width: 50%;
+  float: left;
+  margin-left: 5%;
+}
+section.about div.subject div.content div.introduce p {
+  margin-bottom: 30px;
+  color: #555;
+  padding: 10px 0;
+}
+section.about div.subject div.content .introduce.active {
+  right: 0;
+}
+section.server-section {
+  background-color: #37353b;
+  padding: 56px 0;
+}
+section.server-section div.server-pos {
+  width: 1140px;
+  margin: 0 auto;
+}
+section.server-section div.server-pos h3 {
+  padding: 0;
+  margin: 0 0 42px 0;
+  color: white;
+  font-size: 2.5em;
+}
+section.server-section div.server-pos ul.grid {
+  width: 100%;
+  overflow: hidden;
+}
+section.server-section div.server-pos ul.grid li {
+  position: relative;
+  transition: 0.5s;
+  width: 33%;
+  text-align: center;
+  float: left;
+}
+section.server-section div.server-pos ul.grid li div.grid-content {
+  margin: 0 15px;
+}
+section.server-section div.server-pos ul.grid li div.grid-content img {
+  background: #16A667;
+  padding: 7px 14px;
+  border-radius: 10px;
+}
+section.server-section div.server-pos ul.grid li div.grid-content img:hover {
+  background: #f2af00;
+}
+section.server-section div.server-pos ul.grid li div.grid-content h4 {
+  padding: 16px 0 0 0;
+  margin: 0;
+  color: white;
+  font-size: 1.5em;
+}
+section.server-section div.server-pos ul.grid li div.grid-content p {
+  font-size: 15px;
+  line-height: 25px;
+  color: #999;
+  padding: 14px 0 14px 0;
+}
+section.server-section div.server-pos ul.grid li:first-child {
+  left: -33%;
+}
+section.server-section div.server-pos ul.grid li:nth-child(2) {
+  bottom: -288px;
+}
+section.server-section div.server-pos ul.grid li:last-child {
+  left: 33%;
+}
+section.server-section div.server-pos ul.grid li.active {
+  left: 0;
+  bottom: 0;
+}
+section.works {
+  width: 100%;
+  background: #eee;
+  padding-bottom: 56px;
+}
+section.works h3 {
+  width: 1140px;
+  margin: 0 auto;
+  padding: 0;
+  line-height: 150px;
+  font-size: 2em;
+}
+section.works ul.grid {
+  transform: scale(0);
+  transition: 0.5s;
+  width: 1140px;
+  margin: 0 auto;
+  padding: 0 0 56px 0;
+}
+section.works ul.grid::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.works ul.grid li {
+  width: 25%;
+  position: relative;
+  top: 0;
+  left: 0;
+  float: left;
+  cursor: pointer;
+}
+section.works ul.grid li img {
+  width: 100%;
+  display: block;
+}
+section.works ul.grid li::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../imges/magnify.png') no-repeat rgba(0, 0, 0, 0.3);
+  background-position: center;
+  box-shadow: 0 0 12px 8px white;
+  transform: scale(0);
+  transition: 0.5s;
+}
+section.works ul.grid li:hover:after {
+  transform: scale(1);
+  z-index: 2;
+}
+section.works .grid.active {
+  transform: scale(1);
+}
+section.news {
+  padding: 56px 0;
+}
+section.news div.news-pos {
+  width: 1140px;
+  margin: 0 auto;
+}
+section.news div.news-pos h3 {
+  line-height: 42px;
+  font-size: 2em;
+}
+section.news div.news-pos ul.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.news div.news-pos ul.grid li {
+  position: relative;
+  transition: all 0.5s;
+  float: left;
+  width: 33%;
+}
+section.news div.news-pos ul.grid li div.grid-content h4 {
+  margin: 0;
+  padding: 10.8px 0;
+}
+section.news div.news-pos ul.grid li div.grid-content p {
+  color: #999;
+  margin: 0 0 14px 0;
+}
+section.news div.news-pos ul.grid li div.grid-content p span {
+  color: #000;
+  cursor: pointer;
+}
+section.news div.news-pos ul.grid li div.grid-content p span:hover {
+  text-decoration: underline;
+}
+section.news div.news-pos ul.grid li div.grid-content div.button {
+  width: 122px;
+  position: relative;
+  background-color: #f2af00;
+  text-align: center;
+  cursor: pointer;
+}
+section.news div.news-pos ul.grid li div.grid-content div.button b {
+  color: white;
+  font-weight: normal;
+  position: relative;
+  line-height: 40px;
+  z-index: 1;
+  text-transform: capitalize;
+}
+section.news div.news-pos ul.grid li div.grid-content div.button div.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #16A667;
+  transition: all 0.5s;
+}
+section.news div.news-pos ul.grid li div.grid-content div.button:hover .mask {
+  transform: rotateX(90deg);
+}
+section.news div.news-pos ul.grid li:first-child {
+  left: -33%;
+}
+section.news div.news-pos ul.grid li:nth-child(2) {
+  transform: scale(0);
+}
+section.news div.news-pos ul.grid li:last-child {
+  left: 33%;
+}
+section.news div.news-pos ul.grid li.active {
+  left: 0;
+  transform: scale(1);
+}
+section.categories {
+  padding: 56px 0;
+  background-color: #3f454d;
+}
+section.categories ul.grid {
+  width: 1140px;
+  margin: 0 auto;
+}
+section.categories ul.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.categories ul.grid li {
+  position: relative;
+  transition: all 0.5s;
+}
+section.categories ul.grid li.one.active,
+section.categories ul.grid li.two.active,
+section.categories ul.grid li.three.active {
+  left: 0;
+  transform: scale(1);
+}
+section.categories ul.grid li.one {
+  left: -33%;
+  width: 33%;
+  float: left;
+}
+section.categories ul.grid li.one h3 {
+  font-size: 2em;
+  color: white;
+  padding: 0;
+  margin: 0 0 42px 0;
+}
+section.categories ul.grid li.one div.grid-one-content:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.categories ul.grid li.one div.grid-one-content .up-img {
+  float: left;
+  width: 30%;
+}
+section.categories ul.grid li.one div.grid-one-content .up-img img {
+  width: 100%;
+}
+section.categories ul.grid li.one div.grid-one-content .up-text {
+  width: 66%;
+  float: left;
+  margin-left: 4%;
+}
+section.categories ul.grid li.one div.grid-one-content .up-text a {
+  color: white;
+  font-size: 18px;
+  transition: all 0.5s;
+}
+section.categories ul.grid li.one div.grid-one-content .up-text a:hover {
+  color: #f2af00;
+}
+section.categories ul.grid li.one div.grid-one-content .up-text p {
+  color: #999;
+  line-height: 1.8em;
+}
+section.categories ul.grid li.two {
+  transform: scale(0);
+  width: 33%;
+  float: left;
+}
+section.categories ul.grid li.two h3 {
+  font-size: 2em;
+  color: white;
+  padding: 0;
+  margin: 0 0 42px 0;
+}
+section.categories ul.grid li.two p {
+  line-height: 40px;
+}
+section.categories ul.grid li.two p a {
+  color: #999;
+}
+section.categories ul.grid li.two p a:before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20.8px;
+  margin-right: 5px;
+  background: url('../imges/list-arrow.png') no-repeat;
+  background-position: center;
+}
+section.categories ul.grid li.two p a:hover {
+  color: #f2af00;
+}
+section.categories ul.grid li.three {
+  left: 33%;
+  width: 33%;
+  float: left;
+}
+section.categories ul.grid li.three h3 {
+  font-size: 2em;
+  color: white;
+  padding: 0;
+  margin: 0 0 42px 0;
+}
+section.categories ul.grid li.three div.top {
+  margin-bottom: 2em;
+}
+section.categories ul.grid li.three div.top:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.categories ul.grid li.three div.top div.phonePic {
+  width: 40px;
+  height: 40px;
+  float: left;
+  background: url('../imges/img-sprite1.png') no-repeat -220px 0px;
+}
+section.categories ul.grid li.three div.top div.phoneNum {
+  float: left;
+}
+section.categories ul.grid li.three div.top div.phoneNum p {
+  color: #999;
+}
+section.categories ul.grid li.three div.middle {
+  margin-bottom: 2em;
+}
+section.categories ul.grid li.three div.middle:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.categories ul.grid li.three div.middle div.positionPic {
+  width: 40px;
+  height: 40px;
+  float: left;
+  background: url('../imges/img-sprite1.png') no-repeat -260px 0px;
+}
+section.categories ul.grid li.three div.middle div.positionName {
+  float: left;
+}
+section.categories ul.grid li.three div.middle div.positionName p {
+  color: #999;
+}
+section.categories ul.grid li.three div.foot {
+  margin-bottom: 2em;
+}
+section.categories ul.grid li.three div.foot:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.categories ul.grid li.three div.foot div.emailPic {
+  width: 40px;
+  height: 40px;
+  float: left;
+  background: url('../imges/img-sprite1.png') no-repeat -300px 0px;
+}
+section.categories ul.grid li.three div.foot div.emailNum {
+  float: left;
+}
+section.categories ul.grid li.three div.foot div.emailNum p {
+  color: #999;
+  cursor: pointer;
+}
+section.categories ul.grid li.three div.foot div.emailNum p:hover {
+  color: #f2af00;
+}
+footer {
+  background: #eee;
+  padding: 56px 0;
+}
+footer div.foot-pos {
+  width: 1140px;
+  margin: 0 auto;
+}
+footer div.foot-pos ul.list-pic.active {
+  left: 0;
+}
+footer div.foot-pos ul.list-pic {
+  position: relative;
+  left: -100%;
+  transition: all 1s;
+  text-align: center;
+}
+footer div.foot-pos ul.list-pic li {
+  position: relative;
+  display: inline-block;
+  margin-left: 14px;
+  cursor: pointer;
+  width: 51px;
+  height: 51px;
+  background: url('../imges/img-sprite1.png') no-repeat;
+  background-position: -2px -2px;
+}
+footer div.foot-pos ul.list-pic li:nth-child(2) {
+  background-position: -57px -2px;
+}
+footer div.foot-pos ul.list-pic li:nth-child(3) {
+  background-position: -112px -2px;
+}
+footer div.foot-pos ul.list-pic li:nth-child(4) {
+  background-position: -167px -2px;
+}
+footer div.foot-pos ul.list-pic li:hover {
+  opacity: 0.6;
+}
+footer div.foot-pos ul.list-nav {
+  text-align: center;
+}
+footer div.foot-pos ul.list-nav li {
+  display: inline-block;
+  margin: 1.2em 1.5em;
+}
+footer div.foot-pos ul.list-nav li a {
+  text-transform: capitalize;
+}
+footer div.foot-pos p {
+  position: relative;
+  transition: all 1s;
+  left: 100%;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 14px;
+}
+footer div.foot-pos p span {
+  color: #16A667;
+  font-size: 19px;
+}
+footer div.foot-pos p span:hover {
+  color: #000000;
+  transition: all 0.3s;
+  text-decoration: underline;
+}
+footer div.foot-pos p.active {
+  left: 0;
+}
+/*# sourceMappingURL=./style.css.map */

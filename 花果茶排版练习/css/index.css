@@ -1,0 +1,430 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+p {
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+header {
+  width: 100%;
+}
+header div.nav {
+  width: 75%;
+  margin: 0 auto;
+  position: relative;
+}
+header div.nav::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+header div.nav div.logo {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  float: left;
+}
+header div.nav div.logo::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+header div.nav div.logo div.logoPic {
+  width: 50%;
+  height: 100%;
+  float: left;
+  background: url('../images/logo.png');
+  background-size: 100% 100%;
+  background-position: center;
+}
+header div.nav div.logo h3 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  float: left;
+  width: 50%;
+  padding: 0;
+  margin: 0 0 0 10%;
+}
+header div.nav ul.grid {
+  width: 50%;
+  float: right;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+header div.nav ul.grid::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+header div.nav ul.grid li {
+  float: left;
+}
+header div.nav ul.grid li a {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+}
+header div.nav ul.grid li:nth-child(1) a {
+  background: red;
+  color: white;
+}
+header div.nav ul.grid li:hover a {
+  background: red;
+  color: white;
+}
+header div.nav ul.grid li.active {
+  position: relative;
+}
+header div.nav ul.grid li.active ul.list {
+  position: absolute;
+  bottom: -92px;
+  left: 0;
+  display: none;
+}
+header div.nav ul.grid li.active ul.list::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0 auto;
+  border-bottom: 10px solid red;
+  border-top: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+header div.nav ul.grid li.active ul.list li {
+  width: 100%;
+  background: black;
+  text-align: center;
+}
+header div.nav ul.grid li.active ul.list li:hover {
+  background: red;
+}
+header div.nav ul.grid li.active ul.list li a {
+  color: white;
+  padding: 10px;
+  background: none;
+}
+header div.nav ul.grid li.active:hover ul.list {
+  display: block;
+}
+div.containe {
+  width: 100%;
+}
+div.containe img {
+  width: 100%;
+}
+section.summary {
+  padding: 20px 0;
+}
+section.summary div.contentpos {
+  width: 75%;
+  margin: 0 auto;
+}
+section.summary div.contentpos h3 {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+section.summary div.contentpos p {
+  padding: 10px 0 30px 0;
+  white-space: normal;
+  text-align: center;
+  color: #999;
+}
+section.summary div.contentpos ul.grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+section.summary div.contentpos ul.grid::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.summary div.contentpos ul.grid li {
+  width: 25%;
+  float: left;
+}
+section.summary div.contentpos ul.grid li div.container img {
+  display: block;
+  width: 100%;
+}
+section.summary div.contentpos ul.grid li div.container p {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+section.products {
+  width: 100%;
+  background: url('../images/zuidi.jpg') no-repeat;
+  background-position: top center;
+  background-size: cover;
+}
+section.products p {
+  text-align: center;
+  color: white;
+  padding-top: 40px;
+}
+section.products p:nth-child(2) {
+  padding: 0;
+  margin: 10px 0 50px 0;
+  font-size: 13px;
+}
+section.products ul.content {
+  width: 75%;
+  height: 484px;
+  margin: 0 auto;
+}
+section.products ul.content::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.products ul.content li {
+  height: 100%;
+  width: 33%;
+  float: left;
+}
+section.products ul.content li.left img {
+  width: 100%;
+  display: block;
+}
+section.products ul.content li.middle {
+  background: white;
+  position: relative;
+}
+section.products ul.content li.middle div.container {
+  padding: 20px;
+}
+section.products ul.content li.middle div.container h4 {
+  font-size: 16px;
+}
+section.products ul.content li.middle div.container p {
+  color: black;
+}
+section.products ul.content li.middle div.container a {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  text-decoration: none;
+  padding: 20px 25px;
+  color: white;
+  background: #555;
+  border-radius: 5px;
+}
+section.products ul.content li.right img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+section.service {
+  width: 100%;
+  padding: 56px 0;
+}
+section.service h3 {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+section.service p {
+  text-align: center;
+  color: #999;
+  line-height: 39px;
+  font-size: 13px;
+}
+section.service ul.grid {
+  width: 75%;
+  margin: 0 auto;
+}
+section.service ul.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.service ul.grid li {
+  width: 33%;
+  float: left;
+  text-align: center;
+}
+section.service ul.grid li div.content {
+  padding: 52px;
+}
+section.service ul.grid li div.content div.pic {
+  background: url('../images/bej.png') no-repeat;
+  background-position: center;
+  text-align: center;
+  padding: 17px;
+}
+section.service ul.grid li div.content h4 {
+  padding: 0;
+  margin: 40px 0 0 0;
+}
+section.service ul.grid li div.content p {
+  color: #999;
+}
+div.containerpic {
+  width: 100%;
+  position: relative;
+}
+div.containerpic img {
+  display: block;
+  width: 100%;
+}
+div.containerpic p {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  width: 75%;
+  margin: 16px auto;
+  color: white;
+}
+section.news {
+  width: 75%;
+  margin: 0 auto;
+  padding: 56px 0;
+}
+section.news div.content:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.news div.content div.contentPic {
+  width: 50%;
+  float: left;
+}
+section.news div.content div.contentPic img {
+  width: 100%;
+}
+section.news div.content div.contentText {
+  width: 50%;
+  float: left;
+}
+section.news div.content div.contentText h5 {
+  color: #555;
+  padding-left: 30px;
+  line-height: 26px;
+  margin: 0;
+}
+section.news div.content div.contentText p {
+  padding-left: 30px;
+  line-height: 26px;
+  color: #999;
+  font-size: 13px;
+}
+section.news div.content div.contentText ul {
+  list-style: initial;
+  padding: 42px;
+}
+section.news div.content div.contentText ul li {
+  padding-bottom: 10px;
+}
+section.news ul.show {
+  width: 100%;
+}
+section.news ul.show:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.news ul.show li {
+  width: 25%;
+  float: left;
+}
+section.news ul.show li div.showpic {
+  padding: 10px 10px 10px 0;
+}
+section.news ul.show li div.showpic img {
+  width: 100%;
+}
+section.foot-top {
+  background-color: #999;
+  padding: 56px 0;
+}
+section.foot-top div.tooltip {
+  width: 75%;
+  margin: 0 auto;
+  border-bottom: 1px solid white;
+}
+section.foot-top div.tooltip ul.grid {
+  text-align: center;
+}
+section.foot-top div.tooltip ul.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.foot-top div.tooltip li {
+  float: left;
+  display: block;
+  width: 33%;
+}
+section.foot-top div.tooltip li div.content {
+  padding: 0 0 10px 0;
+}
+section.foot-top div.tooltip li div.content:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+section.foot-top div.tooltip li div.content div.text {
+  display: inline-block;
+}
+section.foot-top div.tooltip li div.content div.text:before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-right: 1px solid white;
+  background: url('../images/pos.png') no-repeat;
+  background-position: center;
+  margin-right: 5px;
+}
+section.foot-top div.tooltip li div.content div.text div.bao {
+  display: inline-block;
+}
+section.foot-top div.tooltip li div.content div.text div.bao h5 {
+  padding: 0;
+  margin: 0;
+  text-align: initial;
+  color: white;
+}
+section.foot-top div.tooltip li div.content div.text div.bao p {
+  color: white;
+}
+section.foot-top ul.list {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+}
+section.foot-top ul.list li {
+  display: inline-block;
+  color: white;
+  font-size: 13px;
+  padding: 0 30px;
+  border-right: 1px solid white;
+}
+section.foot-top ul.list li:last-child {
+  border: none;
+}
+footer.copyright {
+  width: 100%;
+  background: #555;
+  padding: 32px 0 46px 0;
+}
+footer.copyright p {
+  text-align: center;
+  color: white;
+}
+/*# sourceMappingURL=./index.css.map */
