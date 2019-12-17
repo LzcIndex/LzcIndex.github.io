@@ -6,205 +6,325 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/./index.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
-    <div class="aboutAuthor">
-        <div class="authorPic">
-            <img src="./images/pineapple.jpg" alt="">
-        </div>
-        <ul class="list">
-            <li><a href="" target="_blank">关于我</a></li>
-            <li><a href="https://lzcindex.github.io/" target="_blank">GitHub</a></li>
-            <li><a href="" target="_blank">成长历程</a></li>
-            <li><a href="" target="_blank">说明</a></li>
-        </ul>
-    </div>
-    <div class="main">
-        <h1>项目展示</h1>
+    <section class="stage">
         <div class="content">
-            <h2>Html & Css </h2>
-            <div class="stage">
-                <div class="pic">
-                    <a href="./农场/" target="_blank">
-                        <img src="./images/zhongtian.png" alt="">
-                    </a>
-                    <a href="./炉石" target="_blank">
-                        <img src="./images/lushi.png" alt="">
-                    </a>
-                    <a href="./花果茶排版练习/" target="_blank">
-                        <img src="./images/tea.png" alt="">
-                    </a>
-                </div>
-                <div class="introduce">
-                    <h4>静态网页</h4>
-                    <p>使用技术</p>
-                    <p>HTML + CSS</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-3">
+                        <div class="profil">
+                            <div class="pic">
+                                <img src="./images/pineapple.jpg" alt="">
+                            </div>
+                            <div class="introduce">
+                                <h1>我是一个菠萝</h1>
+                                <h4>Web前端开发</h4>
+                                <h6><i class="fa fa-map-marker"></i>广东省茂名市</h6>
+                                <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac risus nibh.
+                                        Donec adipiscing luctus tur</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing eli</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-1 change">
+                        <ul class="list">
+                            <li class="active"><i class="fa fa-user"></i></li>
+                            <li><i class="fa fa-tasks"></i></li>
+                            <li><i class="fa fa-briefcase"></i></li>
+                            <li><i class="fa fa-bullhorn"></i></li>
+                            <li><i class="fa fa-envelope"></i></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-md-8">
+                        <div class="main active">
+                            <h1>Profile - About Me</h1>
+                            <div class="col-xs-6">
+                                <div class="message">
+                                    <h2>BROWN SMITH</h2>
+                                    <ul class="about">
+                                        <li>
+                                            <i class="fa fa-user-md" aria-hidden="true"></i>
+                                            <label>Name</label>
+                                            <span class="value">
+                                                廖志诚
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            <label>Date of birth</label>
+                                            <span class="value">
+                                                1998-04-19
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <label>Adress</label>
+                                            <span class="value">
+                                                茂名
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-envelope-open" aria-hidden="true"></i>
+                                            <label>Email</label>
+                                            <span class="value">
+                                                1205218001@qq.com
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-mobile" aria-hidden="true"></i>
+                                            <label>Phone</label>
+                                            <span class="value">
+                                                18475884301
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-globe" aria-hidden="true"></i>
+                                            <label> Website</label>
+                                            <span class="value">
+                                                LzcIndex.github.io
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <img src="./images/about_3.png" alt="">
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="technique">
+                                    <h2>MY SERVICES</h2>
+                                    <ul class="show">
+                                        <div class="lis">
+                                            <li>
+                                                <div class="lesson">
+                                                    <i class="fa fa-html5" aria-hidden="true"></i>
+                                                </div>
+                                                <h4>HTML5</h4>
+                                                <p>
+                                                    熟练应用HTML5新特性
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <div class="lesson">
+                                                    <i class="fa fa-css3" aria-hidden="true"></i>
+                                                </div>
+                                                <h4>CSS3</h4>
+                                                <p>
+                                                    熟练应用CSS3制作动画等效果
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <div class="lesson">
+                                                    <img src="./images/java-script.png" alt="">
+                                                </div>
+                                                <h4>Javascript</h4>
+                                                <p>
+                                                    熟练Javascript编写程序
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <div class="lesson">
+                                                    <img src="./images/jquery.png" alt="">
+                                                </div>
+                                                <h4>Jquery</h4>
+                                                <p>
+                                                    熟练Juqery的链式操作，动画的使用，元素的处理
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <div class="lesson">
+                                                    <img src="./images/Vue.png" alt="">
+                                                </div>
+                                                <h4>Jquery</h4>
+                                                <p>
+                                                    熟练应用VUE的特性
+                                                </p>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main">
+                            <h1>Portfolio - My Works</h1>
+                            <div class="signs">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>HTML5</span>
+                                <span>CSS3</span>
+                                <span>Canvas</span>
+                                <span>Javascript</span>
+                                <span>Jquery</span>
+                                <span>Ajax</span>
+                                <span>ES6</span>
+                                <span>Bootstrap</span>
+                                <span>Vue</span>
+                            </div>
+                            <div class="contents">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div class="warp-img">
+                                            <a href="./music/">
+                                                <img src="./images/music.png" alt="">
+                                                <div class="mask">
+                                                    <p>音乐播放器</p>
+                                                </div>
+                                            </a>
+                                            <a href="./banner/seamless.html" target="_blank">
+                                                <img src="./images/wuflunbo.png" alt="">
+                                                <div class="mask">
+                                                    <p>无缝轮播</p>
+                                                </div>
+                                            </a>
+                                            <a href="./option/滑动图片垂直选项卡.html" target="_blank">
+                                                <img src="./images/huandongmen.png" alt="">
+                                                <div class="mask">
+                                                    <p>滑动图片垂直选项卡</p>
+                                                </div>
+                                            </a>
+                                            <a href="./response/3/" target="_blank">
+                                                <img src="./images/model.png" alt="">
+                                                <div class="mask">
+                                                    <p>响应式页面Model</p>
+                                                </div>
+                                            </a>
+                                            <a href="./cprogress/" target="_blank">
+                                                <img src="./images/jindu.png" alt="">
+                                                <div class="mask">
+                                                    <p>Canvas 进度条</p>
+                                                </div>
+                                            </a>
+                                            <a href="./loading/zhuzhuangtu.html" target="_blank">
+                                                <img src="./images/zhuzhuangtu.png" alt="">
+                                                <div class="mask">
+                                                    <p>3D 柱状图统计</p>
+                                                </div>
+                                            </a>
+                                            <a href="./花果茶排版练习/" target="_blank">
+                                                <img src="./images/tea.png" alt="">
+                                                <div class="mask">
+                                                    <p>HTML+css静态页面练习</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="warp-img">
+                                            <a href="./plane/">
+                                                <img src="./images/plane.png" alt="">
+                                                <div class="mask">
+                                                    <p>微信打飞机游戏</p>
+                                                </div>
+                                            </a>
+                                            <a href="./banner/3Dbanner.html" target="_blank">
+                                                <img src="./images/3Dlunbo.png" alt="">
+                                                <div class="mask">
+                                                    <p>3D 轮播图</p>
+                                                </div>
+                                            </a>
+                                            <a href="./option/滑动门选项卡.html" target="_blank">
+                                                <img src="./images/chuizhi.png" alt="">
+                                                <div class="mask">
+                                                    <p>滑动门选项卡</p>
+                                                </div>
+                                            </a>
+                                            <a href="./response/2/" target="_blank">
+                                                <img src="./images/dello.png" alt="">
+                                                <div class="mask">
+                                                    <p>响应式页面</p>
+                                                </div>
+                                            </a>
+                                            <a href="./loading/loading.html" target="_blank">
+                                                <img src="./images/loading.png" alt="">
+                                                <div class="mask">
+                                                    <p>CSS3 + SVG loading动画</p>
+                                                </div>
+                                            </a>
+                                            <a href="./农场/" target="_blank">
+                                                <img src="./images/zhongtian.png" alt="">
+                                                <div class="mask">
+                                                    <p>HTML+css静态页面练习静态页面</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="warp-img">
+                                            <a href="">
+                                                <img src="./images/boll.png" alt="">
+                                                <div class="mask">
+                                                    <p>Canvas 球球大作战</p>
+                                                </div
+                                            </a>
+                                            <a href="./division/" target="_blank">
+                                                <img src="./images/fenge.png" alt="">
+                                                <div class="mask">
+                                                    <p>图片分割</p>
+                                                </div
+                                            </a>
+                                            <a href="./waterfall/瀑布流.html" target="_blank">
+                                                <img src="./images/pubuliu.png" alt="">
+                                                <div class="mask">
+                                                    <p>Ajax 瀑布流图片集</p>
+                                                </div
+                                            </a>
+                                            <a href="./response/1/" target="_blank">
+                                                <img src="./images/birds.png" alt="">
+                                                <div class="mask">
+                                                    <p>响应式页面Birds</p>
+                                                </div
+                                            </a>
+                                            <a href="./loading/qianxun.html" target="_blank">
+                                                <img src="./images/qianxun.png" alt="">
+                                                <div class="mask">
+                                                    <p>3D 视差</p>
+                                                </div
+                                            </a>
+                                            <a href="./炉石" target="_blank">
+                                                <img src="./images/lushi.png" alt="">
+                                                <div class="mask">
+                                                    <p>HTML+css静态页面练习静态页面</p>
+                                                </div
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main"></div>
+                        <div class="main"></div>
+                        <div class="main"></div>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
 
-
-        <div class="content">
-            <h2>Javascript & Jquery</h2>
-            <div class="stage">
-                <div class="pic">
-                    <a href="./plane/index.html" target="_blank">
-                        <img src="./images/plane.png" alt="">
-                        <h4>微信打飞机（DOM）</h4>
-                        <p>使用技术</p>
-                        <p>CSS：position，transition，LESS</p>
-                        <p>Javascript：DOM 元素节点的操作，面向对象，父子类继承，对象排序（冒泡排序），localStorage</p>
-                    </a>
-
-                    <a href="./music/" target="_blank">
-                        <img src="./images/music.png" alt="">
-                        <h4>音乐播放器</h4>
-                        <p>使用技术</p>
-                        <p>HTML5: Audio</p>
-                        <p>CSS3: animation</p>
-                        <p>Javascript：事件对象的运用，DOM元素节点的操作</p>
-                    </a>
-
-                    <a href="./banner/seamless.html" target="_blank">
-                        <img src="./images/wuflunbo.png" alt="">
-                        <h4>无缝轮播</h4>
-                        <p>使用技术</p>
-                        <p>CSS3 transition（过渡）</p>
-                        <p>Javscript：onclick，onmouseenter，onmouseleave等事件</p>
-                    </a>
-                    <a href="./banner/3Dbanner.html" target="_blank">
-                        <img src="./images/3Dlunbo.png" alt="">
-                        <h4>3D轮播</h4>
-                        <p>使用技术</p>
-                        <p>CSS3 ：transform 3D转换</p>
-                        <p>Javscript：onclick，onmouseenter，onmouseleave等事件</p>
-                    </a>
-
-                    <a href="./division/" target="_blank">
-                        <img src="./images/fenge.png" alt="">
-                        <h4>图层分割</h4>
-                        <p>使用技术</p>
-                        <p>Jquery : DOM 元素节点的操作，响应事件</p>
-                    </a>
-
-                    <a href="./option/滑动图片垂直选项卡.html" target="_blank">
-                        <img src="./images/huandongmen.png" alt="">
-                        <h4>滑动图片垂直选项卡</h4>
-                        <p>使用技术</p>
-                        <p>CSS3 ： transition（过渡），3D转换</p>
-                        <p>Jquery : DOM 元素节点的操作，响应事件</p>
-                    </a>
-                    <a href="./option/滑动门选项卡.html" target="_blank">
-                        <img src="./images/chuizhi.png" alt="">
-                        <h4>滑动门选项卡</h4>
-                        <p>使用技术</p>
-                        <p>CSS3 ： transition（过渡），3D转换</p>
-                        <p>Jquery : DOM 元素节点的操作，响应事件</p>
-                    </a>
-
-                    <a href="./waterfall/瀑布流.html" target="_blank">
-                        <img src="./images/pubuliu.png" alt="">
-                        <h4>Ajax 瀑布流图集</h4>
-                        <p>使用技术</p>
-                        <p>Jquery Boostrap Ajax Json</p>
-                        <p>Javscript，boostrap栅格系统，组建，Ajax数据请求，Json数据处理</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div class="content">
-            <h2>Boostrap 响应式页面</h2>
-            <div class="stage">
-                <div class="pic">
-                    <a href="./response/3/" target="_blank">
-                        <img src="./images/model.png" alt="">
-                        <h4>Model</h4>
-                    </a>
-                    <a href="./response/2/" target="_blank">
-                        <img src="./images/dello.png" alt="">
-                        <h4>Dwellpo</h4>
-                    </a>
-                    <a href="./response/1/" target="_blank">
-                        <img src="./images/birds.png" alt="">
-                        <h4>Love Birds</h4>
-                    </a>
-                </div>
-                <div class="introduce">
-                    <p>使用技术</p>
-                    <p>HTML5 CSS3 boostrap</p>
-                    <p>Javscript，栅格系统，组建，插件的使用</p>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="content">
-            <h2>HTML5</h2>
-            <div class="stage">
-                <div class="pic">
-                    <a href="./boll/" target="_blank">
-                        <img src="./images/boll.png" alt="">
-                        <h4> 球球大作战 </h4>
-                        <p>使用技术</p>
-                        <p>HTML5：Canvas、localStorage</p>
-                        <p>Javascript：面向对象，对象排序（冒泡排序），JSON 数据</p>
-                    </a>
-                    <a href="./cprogress/" target="_blank">
-                        <img src="./images/jindu.png" alt="">
-                        <h4>Canvas & Es6进度条</h4>
-                        <p>使用技术</p>
-                        <p>ES6 : Class 类的运用</p>
-                        <p>Javascript : 面向对象 ，Math对象</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-     
-
-        <div class="content">
-            <h2>Css3 + Svg loading动画</h2>
-            <div class="stage">
-                <div class="pic">
-                    <a href="./loading/loading.html" target="_blank">
-                        <img src="./images/loading.png" alt="">
-                        <h4>loading动画</h4>
-                        <p>使用技术</p>
-                        <p>CSS3 ：弹性盒子，animation，Gradients（渐变）</p>
-                        <p>Svg : viewbox,animateTransform,circle,rect</p>
-                    </a>
-                    <a href="./loading/qianxun.html" target="_blank">
-                        <img src="./images/qianxun.png" alt="">
-                        <h4>3D视差卡片</h4>
-                        <p>使用技术</p>
-                        <p>CSS3 ：弹性盒子，transition（过渡），3D转换</p>
-                        <p>Javascript ：响应事件，事件对象，Math对象</p>
-                    </a>
-                    <a href="./loading/zhuzhuangtu.html" target="_blank">
-                        <img src="./images/zhuzhuangtu.png" alt="">
-                        <h4>3D柱状图统计表</h4>
-                        <p>使用技术</p>
-                        <p>CSS3 ：弹性盒子，transition（过渡），3D转换</p>
-                        <p>Javascript ：响应事件，事件对象，Math对象</p>
-                    </a>
-                </div>
-
-            </div>
-        </div>
-
-       
-
-
-
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script>
+        var lis = document.querySelectorAll('.change .list li')
+        var mains = document.querySelectorAll('.main')
+        $('.change .list li').click(function () {
+            var thisIndex =  $(this).index()
+            $(this).addClass("active").siblings().removeClass('active')
+            $('.main').each(function (index,emain) {
+                if(index == thisIndex){
+                    emain.classList.add('active')
+                }else{
+                    emain.classList.remove('active')
+                }
+              })
+         })
+    
+    </script>
 </body>
 
 </html>
