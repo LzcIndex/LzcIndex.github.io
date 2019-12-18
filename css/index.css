@@ -464,7 +464,7 @@ section.stage .content .container .row .main .message .about li span {
 }
 @media (max-width: 500px) {
   section.stage .content .container .row .main .message .about li span {
-    font-size: 9px;
+    float: left;
   }
 }
 section.stage .content .container .row .main .technique h2 {
