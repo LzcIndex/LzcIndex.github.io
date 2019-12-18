@@ -163,7 +163,6 @@ section.banner{
   
 }
 section.design{
-    overflow: hidden;
     padding: 100px 0;
     background: url('../images/services_bg.jpg') no-repeat;
     background-size: cover;
@@ -384,6 +383,7 @@ section.project_section{
     }
     img{
         border: 10px solid white;
+        width: 100%;
     }
     p{
         position: absolute;
@@ -428,6 +428,7 @@ section.about{
     background:url('../images/about_bg.jpg') no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    background-position: center;
     padding: 200px 0 100px 0;
     h1{
         color: #999999;
@@ -455,6 +456,7 @@ section.about{
             font-weight: 400;
             line-height: 30px;
             margin: 2em 0;
+            cursor: pointer;
             span{
                 i{
                     color: #cd9967;
@@ -474,4 +476,164 @@ section.about{
            
         }
     }
+}
+section.testimonials{
+    padding: 100px 0;
+    background: url('../images/testimonials.jpg') no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    h2{
+        text-align: center;
+        color: #ffffff;
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 1.6;
+    }
+    .banner{
+        .item{
+            padding: 80px 0 0;
+        }
+        .content{
+            position: relative;
+            margin-bottom: 60px;
+            .warp-pic{
+                overflow: hidden;
+                border-radius: 50%;
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                img{
+                    
+                }
+            }
+            .warp-text{
+                padding: 80px 85px 60px;
+                background: white;
+                p{
+                    font-size: 24px;
+                    text-align: center;
+                    font-weight: 400;
+                    color: #252531;
+                    line-height: 30px;
+                    margin-bottom: 30px;
+                }
+                p.test_name{
+                    font-size: 18px;
+                    color: #cd9967;
+                    line-height: 26px;
+                    font-weight: 600;
+                    margin: 0
+                }
+                p.test_detail{
+                    font-size: 18px;
+                    color: #8799a3;
+                    line-height: 26px;
+                }
+            }
+        }
+        .carousel-control{
+            background: none;
+        }
+    }
+}
+section.blog{
+    background: #f4f4f4;
+    padding: 100px 0;
+    .warp-text{
+        text-align: center;
+        &::after{
+            content: '';
+            display: inline-block;
+            height: 2px;
+            width: 60px;
+            background: #cd9967;
+            margin-bottom: 70px;
+        }
+        h2{
+            color: #252531;
+            font-size: 36px;
+            line-height: 48px;
+            font-weight: 400;
+        }
+    } 
+    .blog-item{
+        border: 10px solid #fff;
+        transition: all 0.5s;
+        margin: 0 0 30px 0;
+        background: #fff;
+        &:hover{
+            box-shadow: 0px 0px 30px rgba(0,0,0,0.21);
+            margin-top: -5px;
+            i.fa-heart{
+                color: red;
+            }
+        }
+        img{
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .blog_details{
+            margin: 0 20px;
+            .wp{
+                font-size: 14px;
+                font-weight: 700;
+                letter-spacing: 2px;
+                color: #cd9967;
+                line-height: 30px;
+            }
+            a{
+                font-size: 24px;
+                font-weight: 400;
+                margin-bottom: 10px;
+                color: #252531;
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+            .admin{
+                font-size: 13px;
+                font-weight: 400;
+                color: #999999;
+                line-height: 30px;
+                margin-bottom: 15px;
+            }
+            .details{
+                font-size: 14px;
+                font-weight: 400;
+                color: #999999;
+                line-height: 30px;
+                margin-bottom: 25px;
+            }
+            .comment_box{
+                border-top: 1px solid #ebebeb;
+                padding: 15px 0 0;
+                display: inline-block;
+                width: 100%;
+                ul{
+                    li{
+                        color:#999;
+                        font-size: 14px;
+                        i{
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+section.clients{
+    padding: 100px 0;
+    .swiper-slide{
+        img{
+            opacity: 0.5;
+            transition: all .3s;
+            &:hover{
+                opacity: 1;
+            }
+        }
+    }
+    
 }

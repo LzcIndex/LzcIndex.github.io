@@ -149,7 +149,6 @@ section.banner .text h1 {
   line-height: 1.9;
 }
 section.design {
-  overflow: hidden;
   padding: 100px 0;
   background: url('../images/services_bg.jpg') no-repeat;
   background-size: cover;
@@ -359,6 +358,7 @@ section.project_section .inner:hover .mask {
 }
 section.project_section .inner img {
   border: 10px solid white;
+  width: 100%;
 }
 section.project_section .inner p {
   position: absolute;
@@ -400,6 +400,7 @@ section.about {
   background: url('../images/about_bg.jpg') no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  background-position: center;
   padding: 200px 0 100px 0;
 }
 section.about h1 {
@@ -427,6 +428,7 @@ section.about ul.accrodion li {
   font-weight: 400;
   line-height: 30px;
   margin: 2em 0;
+  cursor: pointer;
 }
 section.about ul.accrodion li span i {
   color: #cd9967;
@@ -440,5 +442,155 @@ section.about ul.accrodion li p {
   line-height: 26px;
   font-size: 14px;
   margin: 50px 0;
+}
+section.testimonials {
+  padding: 100px 0;
+  background: url('../images/testimonials.jpg') no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+section.testimonials h2 {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.6;
+}
+section.testimonials .banner .item {
+  padding: 80px 0 0;
+}
+section.testimonials .banner .content {
+  position: relative;
+  margin-bottom: 60px;
+}
+section.testimonials .banner .content .warp-pic {
+  overflow: hidden;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+section.testimonials .banner .content .warp-text {
+  padding: 80px 85px 60px;
+  background: white;
+}
+section.testimonials .banner .content .warp-text p {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 400;
+  color: #252531;
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+section.testimonials .banner .content .warp-text p.test_name {
+  font-size: 18px;
+  color: #cd9967;
+  line-height: 26px;
+  font-weight: 600;
+  margin: 0;
+}
+section.testimonials .banner .content .warp-text p.test_detail {
+  font-size: 18px;
+  color: #8799a3;
+  line-height: 26px;
+}
+section.testimonials .banner .carousel-control {
+  background: none;
+}
+section.blog {
+  background: #f4f4f4;
+  padding: 100px 0;
+}
+section.blog .warp-text {
+  text-align: center;
+}
+section.blog .warp-text::after {
+  content: '';
+  display: inline-block;
+  height: 2px;
+  width: 60px;
+  background: #cd9967;
+  margin-bottom: 70px;
+}
+section.blog .warp-text h2 {
+  color: #252531;
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 400;
+}
+section.blog .blog-item {
+  border: 10px solid #fff;
+  transition: all 0.5s;
+  margin: 0 0 30px 0;
+  background: #fff;
+}
+section.blog .blog-item:hover {
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.21);
+  margin-top: -5px;
+}
+section.blog .blog-item:hover i.fa-heart {
+  color: red;
+}
+section.blog .blog-item img {
+  width: 100%;
+  margin-bottom: 30px;
+}
+section.blog .blog-item .blog_details {
+  margin: 0 20px;
+}
+section.blog .blog-item .blog_details .wp {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #cd9967;
+  line-height: 30px;
+}
+section.blog .blog-item .blog_details a {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: #252531;
+}
+section.blog .blog-item .blog_details a:hover {
+  text-decoration: none;
+}
+section.blog .blog-item .blog_details .admin {
+  font-size: 13px;
+  font-weight: 400;
+  color: #999999;
+  line-height: 30px;
+  margin-bottom: 15px;
+}
+section.blog .blog-item .blog_details .details {
+  font-size: 14px;
+  font-weight: 400;
+  color: #999999;
+  line-height: 30px;
+  margin-bottom: 25px;
+}
+section.blog .blog-item .blog_details .comment_box {
+  border-top: 1px solid #ebebeb;
+  padding: 15px 0 0;
+  display: inline-block;
+  width: 100%;
+}
+section.blog .blog-item .blog_details .comment_box ul li {
+  color: #999;
+  font-size: 14px;
+}
+section.blog .blog-item .blog_details .comment_box ul li i {
+  padding-right: 10px;
+}
+section.clients {
+  padding: 100px 0;
+}
+section.clients .swiper-slide img {
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+section.clients .swiper-slide img:hover {
+  opacity: 1;
 }
 /*# sourceMappingURL=./nav.css.map */
