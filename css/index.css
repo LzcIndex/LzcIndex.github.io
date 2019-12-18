@@ -462,6 +462,11 @@ section.stage .content .container .row .main .message .about li span {
   color: #717171;
   font-size: 13px;
 }
+@media (max-width: 500px) {
+  section.stage .content .container .row .main .message .about li span {
+    font-size: 9px;
+  }
+}
 section.stage .content .container .row .main .technique h2 {
   line-height: 1.9;
   font-size: 1.1em;
