@@ -97,10 +97,15 @@ header{
           
                 font-size: 0;
                 li{
+                   
                     font-size: 16px;
-                width: 50%;
-                 display: inline-block;
+                    width: 50%;
+                    display: inline-block;
+                 @media (max-width:1300px) {
+                    display: none;
+                }
                     a{
+                        color: #666666;
                         &:hover{
                             text-decoration: none;
                             color: #cd9967;
@@ -116,6 +121,7 @@ section.banner{
     padding: 96px 0;
     background: url('../images/slide-1.jpg') no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     background-position: center;
     overflow: hidden;
     .text{
@@ -158,6 +164,17 @@ section.banner{
             letter-spacing: 15px;
             color: white;
             line-height: 1.9;
+            @media (max-width:992px) {
+                font-size:80px;
+             }
+             @media (max-width:768px) {
+                font-size:70px;
+             }
+            @media (max-width:500px) {
+                font-size: 22px;
+            }
+            
+           
         }
     }
   
@@ -173,6 +190,17 @@ section.design{
             position: absolute;
             top: -110px;
             width: 100%;
+            @media (max-width:992px) {
+                top: -108px;
+            }
+            @media (max-width:768px) {
+                top: -67px;
+            }
+            @media (max-width:500px) {
+                top: -46px;
+            }
+            
+           
         }
     }
     div.theme{
@@ -180,6 +208,9 @@ section.design{
         .text-left{
             .top{
                 margin-bottom: 25px;
+                @media (max-width:500px) {
+                    margin-bottom: 10px;
+                 }
                 h2{
                     font-size: 2.1em;
                     color: #252531;
@@ -187,6 +218,10 @@ section.design{
                     font-weight: 700;
                     letter-spacing: 1px;
                     margin-bottom: 25px;
+                    @media (max-width:500px) {
+                       font-size: 22px;
+                       margin-bottom: 10px;
+                    }
                    
                 }
                 &::after{
@@ -199,7 +234,7 @@ section.design{
                 
             }
             p{
-                line-height: 36px;
+                line-height: 1.9;
                 color: #999999;
                 margin-bottom: 30px;
             }
@@ -242,6 +277,7 @@ section.design{
     .our_services{
        padding: 0;
        .sever{
+           margin-bottom: 15px;
            padding: 40px;
            background: #fff;
            h4{
@@ -295,21 +331,33 @@ section.collection{
                     color: #252531;
                 }
                 p{
+                    
                     line-height: 60px;
                     color: #252531;
                     font-size: 36px;
                     font-weight: 400;
+                    @media (max-width:500px) {
+                        font-size: 16px;
+                        line-height: 30px;
+                    }
                 }
                 a{
                     margin-top: 40px;
                     width: 170px;
-                    height: 50px;
+                    line-height: 30px;
                     display: inline-block;
                     background: #cd9967;
                     color: #fff;
                     text-transform: uppercase;
                     padding: 12px 24px;
-                    border: 2px solid #cd9967
+                    border: 2px solid #cd9967;
+                    transition: all 1s;
+                    &:hover{
+                        text-decoration: none;
+                        background: transparent;
+                        color: #cd9967;
+                        border: 2px solid #cd9967;
+                    }
                 }
             }
         }
@@ -511,6 +559,9 @@ section.testimonials{
             .warp-text{
                 padding: 80px 85px 60px;
                 background: white;
+                @media (max-width:500px) {
+                    padding: 62px 27px 60px;
+                }
                 p{
                     font-size: 24px;
                     text-align: center;
@@ -628,6 +679,7 @@ section.clients{
     padding: 100px 0;
     .swiper-slide{
         img{
+            margin: 0 auto;
             opacity: 0.5;
             transition: all .3s;
             &:hover{
@@ -636,4 +688,102 @@ section.clients{
         }
     }
     
+}
+footer{
+    padding: 100px 0;
+    background: #2b283d;
+    .container{
+        border-bottom: 1px solid #999;
+        padding-bottom: 100px;
+    }
+    .widget{
+        h4{
+            font-size: 24px;
+            padding-bottom: 20px;
+            text-transform: capitalize;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        p{
+            font-size: 14px;
+            color: #999999;
+            line-height: 30px;
+        }
+        p.cancat{
+            margin-bottom: 30px;
+        }
+        .letter{
+            margin-top: 30px;
+            form{
+                position: relative;
+                input.email{
+                    border: 0px;
+                    border-radius: 50px;
+                    background: #312d48;
+                    width: 100%;
+                    padding: 15px 35px 15px 15px;
+                    outline: 0px !important;
+                    color: #8d949a;
+                    font-size: 13px;
+                }
+                .submitLetter{
+                    position: absolute;
+                    top: 50%;
+                    right: 10px;
+                    margin-top: -9px;
+                    outline: 0px !important;
+                    padding: 0px;
+                    text-align: center;
+                    width: 20px;
+                    height: 16px;
+                    background: url('../images/message.png') no-repeat;
+                    border: none;
+                    text-indent: -100px;
+                }
+                
+            }
+            
+        }
+        .tweets{
+            li{
+                color: #999;
+                margin-bottom: 30px;
+                padding-left: 40px;
+                position: relative;
+                line-height: 28px;
+                font-size: 14px;
+                i{
+                    color: #0081ff;
+                    font-size: 20px;
+                    font-size: 20px;
+                    display: inline-block;
+                    bottom: 0;
+                    left: 0;
+                    margin: auto;
+                    position: absolute;
+                    top: 3px
+                }
+                a{
+                    color: #999;
+                }
+            }
+        }
+        .instagram-list{
+            li{
+                display: inline-block;
+                margin-bottom: 10px;
+                margin-right: 10px;
+                padding: 0;
+                width: 27%;
+            }
+        }
+        .friends{
+            font-size:20px ;
+            color: #999;
+            i{
+                margin-right: 15px;
+            }
+        }
+    }
+
 }

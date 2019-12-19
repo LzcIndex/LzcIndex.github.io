@@ -97,6 +97,14 @@ header .navbar .warp-nav .card-sec ul li {
   width: 50%;
   display: inline-block;
 }
+@media (max-width: 1300px) {
+  header .navbar .warp-nav .card-sec ul li {
+    display: none;
+  }
+}
+header .navbar .warp-nav .card-sec ul li a {
+  color: #666666;
+}
 header .navbar .warp-nav .card-sec ul li a:hover {
   text-decoration: none;
   color: #cd9967;
@@ -105,6 +113,7 @@ section.banner {
   padding: 96px 0;
   background: url('../images/slide-1.jpg') no-repeat;
   background-size: cover;
+  background-attachment: fixed;
   background-position: center;
   overflow: hidden;
 }
@@ -148,6 +157,21 @@ section.banner .text h1 {
   color: white;
   line-height: 1.9;
 }
+@media (max-width: 992px) {
+  section.banner .text h1 {
+    font-size: 80px;
+  }
+}
+@media (max-width: 768px) {
+  section.banner .text h1 {
+    font-size: 70px;
+  }
+}
+@media (max-width: 500px) {
+  section.banner .text h1 {
+    font-size: 22px;
+  }
+}
 section.design {
   padding: 100px 0;
   background: url('../images/services_bg.jpg') no-repeat;
@@ -160,11 +184,31 @@ section.design .top-pic img {
   top: -110px;
   width: 100%;
 }
+@media (max-width: 992px) {
+  section.design .top-pic img {
+    top: -108px;
+  }
+}
+@media (max-width: 768px) {
+  section.design .top-pic img {
+    top: -67px;
+  }
+}
+@media (max-width: 500px) {
+  section.design .top-pic img {
+    top: -46px;
+  }
+}
 section.design div.theme {
   margin-bottom: 120px;
 }
 section.design div.theme .text-left .top {
   margin-bottom: 25px;
+}
+@media (max-width: 500px) {
+  section.design div.theme .text-left .top {
+    margin-bottom: 10px;
+  }
 }
 section.design div.theme .text-left .top h2 {
   font-size: 2.1em;
@@ -174,6 +218,12 @@ section.design div.theme .text-left .top h2 {
   letter-spacing: 1px;
   margin-bottom: 25px;
 }
+@media (max-width: 500px) {
+  section.design div.theme .text-left .top h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+}
 section.design div.theme .text-left .top::after {
   content: '';
   display: block;
@@ -182,7 +232,7 @@ section.design div.theme .text-left .top::after {
   background: #CD9967;
 }
 section.design div.theme .text-left p {
-  line-height: 36px;
+  line-height: 1.9;
   color: #999999;
   margin-bottom: 30px;
 }
@@ -224,6 +274,7 @@ section.design .our_services {
   padding: 0;
 }
 section.design .our_services .sever {
+  margin-bottom: 15px;
   padding: 40px;
   background: #fff;
 }
@@ -282,15 +333,28 @@ section.collection div.zero_padding div.left-collection .innercontent p {
   font-size: 36px;
   font-weight: 400;
 }
+@media (max-width: 500px) {
+  section.collection div.zero_padding div.left-collection .innercontent p {
+    font-size: 16px;
+    line-height: 30px;
+  }
+}
 section.collection div.zero_padding div.left-collection .innercontent a {
   margin-top: 40px;
   width: 170px;
-  height: 50px;
+  line-height: 30px;
   display: inline-block;
   background: #cd9967;
   color: #fff;
   text-transform: uppercase;
   padding: 12px 24px;
+  border: 2px solid #cd9967;
+  transition: all 1s;
+}
+section.collection div.zero_padding div.left-collection .innercontent a:hover {
+  text-decoration: none;
+  background: transparent;
+  color: #cd9967;
   border: 2px solid #cd9967;
 }
 section.project_section {
@@ -476,6 +540,11 @@ section.testimonials .banner .content .warp-text {
   padding: 80px 85px 60px;
   background: white;
 }
+@media (max-width: 500px) {
+  section.testimonials .banner .content .warp-text {
+    padding: 62px 27px 60px;
+  }
+}
 section.testimonials .banner .content .warp-text p {
   font-size: 24px;
   text-align: center;
@@ -587,10 +656,99 @@ section.clients {
   padding: 100px 0;
 }
 section.clients .swiper-slide img {
+  margin: 0 auto;
   opacity: 0.5;
   transition: all 0.3s;
 }
 section.clients .swiper-slide img:hover {
   opacity: 1;
+}
+footer {
+  padding: 100px 0;
+  background: #2b283d;
+}
+footer .container {
+  border-bottom: 1px solid #999;
+  padding-bottom: 100px;
+}
+footer .widget h4 {
+  font-size: 24px;
+  padding-bottom: 20px;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: #ffffff;
+}
+footer .widget p {
+  font-size: 14px;
+  color: #999999;
+  line-height: 30px;
+}
+footer .widget p.cancat {
+  margin-bottom: 30px;
+}
+footer .widget .letter {
+  margin-top: 30px;
+}
+footer .widget .letter form {
+  position: relative;
+}
+footer .widget .letter form input.email {
+  border: 0px;
+  border-radius: 50px;
+  background: #312d48;
+  width: 100%;
+  padding: 15px 35px 15px 15px;
+  outline: 0px !important;
+  color: #8d949a;
+  font-size: 13px;
+}
+footer .widget .letter form .submitLetter {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -9px;
+  outline: 0px !important;
+  padding: 0px;
+  text-align: center;
+  width: 20px;
+  height: 16px;
+  background: url('../images/message.png') no-repeat;
+  border: none;
+  text-indent: -100px;
+}
+footer .widget .tweets li {
+  color: #999;
+  margin-bottom: 30px;
+  padding-left: 40px;
+  position: relative;
+  line-height: 28px;
+  font-size: 14px;
+}
+footer .widget .tweets li i {
+  color: #0081ff;
+  font-size: 20px;
+  display: inline-block;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  top: 3px;
+}
+footer .widget .tweets li a {
+  color: #999;
+}
+footer .widget .instagram-list li {
+  display: inline-block;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 0;
+  width: 27%;
+}
+footer .widget .friends {
+  font-size: 20px ;
+  color: #999;
+}
+footer .widget .friends i {
+  margin-right: 15px;
 }
 /*# sourceMappingURL=./nav.css.map */
