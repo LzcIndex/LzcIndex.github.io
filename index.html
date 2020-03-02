@@ -35,13 +35,25 @@
                     </div>
                     <div class="col-xs-12 col-md-1 change">
                         <ul class="list">
-                            <li class="active"><i class="fa fa-user"></i></li>
-                            <li><i class="fa fa-tasks"></i></li>
-                            <li><i class="fa fa-briefcase"></i></li>
+                            <li class="active">
+                                <i class="fa fa-user"></i>
+                                <span class="msg">个人信息</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-briefcase"></i>
+                                <span class="msg">成长历程</span>
+
+                            </li>
+                            <li>
+                                <i class="fa fa-tasks"></i>
+                                <span class="msg">项目展示</span>
+
+                            </li>
                             <li><i class="fa fa-bullhorn"></i></li>
                             <li><i class="fa fa-envelope"></i></li>
                         </ul>
                     </div>
+
                     <div class="col-xs-12 col-md-8">
                         <div class="main active">
                             <h1>Profile - About Me</h1>
@@ -171,7 +183,7 @@
                                 <div class="row">
                                     <div class="col-xs-4">
                                         <div class="warp-img">
-                                            <a href="./music/">
+                                            <a href="./music/" target="_blank">
                                                 <img src="./images/music.png" alt="">
                                                 <div class="mask">
                                                     <p>音乐播放器</p>
@@ -217,7 +229,7 @@
                                     </div>
                                     <div class="col-xs-4">
                                         <div class="warp-img">
-                                            <a href="./plane/">
+                                            <a href="./plane/" target="_blank">
                                                 <img src="./images/plane.png" alt="">
                                                 <div class="mask">
                                                     <p>微信打飞机游戏</p>
@@ -261,44 +273,75 @@
                                                 <img src="./images/boll.png" alt="">
                                                 <div class="mask">
                                                     <p>Canvas 球球大作战</p>
-                                                </div
+                                                </div>
                                             </a>
                                             <a href="./division/" target="_blank">
                                                 <img src="./images/fenge.png" alt="">
                                                 <div class="mask">
                                                     <p>图片分割</p>
-                                                </div
+                                                </div>
                                             </a>
                                             <a href="./waterfall/瀑布流.html" target="_blank">
                                                 <img src="./images/pubuliu.png" alt="">
                                                 <div class="mask">
                                                     <p>Ajax 瀑布流图片集</p>
-                                                </div
+                                                </div>
                                             </a>
                                             <a href="./response/1/" target="_blank">
                                                 <img src="./images/birds.png" alt="">
                                                 <div class="mask">
                                                     <p>响应式页面Birds</p>
-                                                </div
+                                                </div>
                                             </a>
                                             <a href="./loading/qianxun.html" target="_blank">
                                                 <img src="./images/qianxun.png" alt="">
                                                 <div class="mask">
                                                     <p>3D 视差</p>
-                                                </div
+                                                </div>
                                             </a>
                                             <a href="./炉石" target="_blank">
                                                 <img src="./images/lushi.png" alt="">
                                                 <div class="mask">
                                                     <p>HTML+css静态页面练习静态页面</p>
-                                                </div
+                                                </div>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="main"></div>
+                        <div class="main">
+                            <h1>Portfolio - My Works</h1>
+                            <ul class="project-list">
+                                <li class="project-item">
+                                    <div class="project-pic">
+                                        <img src="./images/网易云音乐.png" alt="">
+                                    </div>
+                                    <div class="project-msg">
+                                        <p>项目名称：网易云音乐</p>
+                                        <p>项目描述：
+                                            1、推荐歌曲，热门歌曲，歌曲搜索，歌单详情，标签简介，当前播放列表
+                                            2、歌曲播放，切换歌曲，切换播放模式，快进播放音乐
+                                            3、当前播放歌曲歌词，收起播放界面展示小播放栏目</p>
+                                        <p><a href="./vue-music/index.html">传送门</a></p>
+                                    </div>
+                                </li>
+                                <li class="project-item">
+                                    <div class="project-pic">
+                                        <img src="./images/厂库.png" alt="">
+                                    </div>
+                                    <div class="project-msg">
+                                        <p>项目名称：厂库小视频</p>
+                                        <p>项目描述：
+                                            1、热门视频推荐展示，频道分类
+                                            2、视频详情，相关视频推荐
+                                            3、视频搜索，根据推荐热词搜索</p>
+                                        <p><a href="">传送门</a></p>
+                                    
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                         <div class="main"></div>
                         <div class="main"></div>
                     </div>
@@ -313,17 +356,17 @@
         var lis = document.querySelectorAll('.change .list li')
         var mains = document.querySelectorAll('.main')
         $('.change .list li').click(function () {
-            var thisIndex =  $(this).index()
+            var thisIndex = $(this).index()
             $(this).addClass("active").siblings().removeClass('active')
-            $('.main').each(function (index,emain) {
-                if(index == thisIndex){
+            $('.main').each(function (index, emain) {
+                if (index == thisIndex) {
                     emain.classList.add('active')
-                }else{
+                } else {
                     emain.classList.remove('active')
                 }
-              })
-         })
-    
+            })
+        })
+
     </script>
 </body>
 
