@@ -387,6 +387,12 @@ section.stage .content .container .row .change .list li {
   text-align: center;
   line-height: 97px;
 }
+section.stage .content .container .row .change .list li .msg {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: white;
+}
 section.stage .content .container .row .change .list li i {
   position: relative;
   text-align: center;
@@ -400,6 +406,9 @@ section.stage .content .container .row .change .list li i {
 }
 section.stage .content .container .row .change .list li.active {
   background: white;
+}
+section.stage .content .container .row .change .list li.active .msg {
+  color: black;
 }
 section.stage .content .container .row .change .list li.active i {
   color: white;
@@ -436,6 +445,23 @@ section.stage .content .container .row .main h1 {
   background: url('../images/add.png') no-repeat;
   border-bottom: 1px solid #e6e6e6;
   margin-bottom: 15px;
+}
+section.stage .content .container .row .main ul.project-list .project-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+section.stage .content .container .row .main ul.project-list .project-item .project-pic {
+  width: 15%;
+}
+section.stage .content .container .row .main ul.project-list .project-item .project-msg {
+  flex: 1;
+  display: flex;
+  margin-left: 15px;
+  flex-direction: column;
+  justify-content: space-around;
+}
+section.stage .content .container .row .main ul.project-list .project-item .project-msg p {
+  font-size: 1rem;
 }
 section.stage .content .container .row .main .message {
   margin: 0 0 0 -15px;
