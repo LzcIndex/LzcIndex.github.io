@@ -1,0 +1,4 @@
+<!--pages/category/category.wxml-->
+<view class="category">
+  <Category cfic="{{ categoryData }}"></Category>
+</view>

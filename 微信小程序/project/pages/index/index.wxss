@@ -1,0 +1,15 @@
+/* pages/search/search.wxss */
+
+.weui-search-bar {
+  background: black;
+}
+
+.weui-search-bar__form {
+  background: #333;
+}
+.today ,.posts{
+  text-align: center;
+  color: white;
+  background: black;
+  padding: 15px 0;
+}

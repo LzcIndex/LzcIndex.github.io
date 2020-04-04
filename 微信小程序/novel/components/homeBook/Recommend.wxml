@@ -1,0 +1,15 @@
+<!--components/homeBook/Recommend.wxml-->
+<wxs src="../../utils/translateImage.wxs" module="tools" />
+<view class="recommend">
+  <view class="books-img">
+    <image mode="widthFix" src="{{ tools.translateImage(item.cover) }}"></image>
+  </view>
+  <view class="books-detailed">
+    <view class="books-name">{{ item.title }}</view>
+    <view class="books-introduce">{{ item.shortIntro }}</view>
+    <view class="books-msg">
+      <text>{{ item.author }}</text>
+      <text>{{ item.latelyFollower }}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,15 @@
+var translateTime = function(time){
+  var m = parseInt(time / 60) > 9 ? parseInt(time / 60) : "0" + parseInt(time / 60);
+  var s = parseInt(time % 60) > 9 ? parseInt(time % 60) : "0" + parseInt(time % 60);
+  return m + ":" + s
+}
+
+var translateTimeD = function (time) {
+  var m = parseInt(time / 60) > 9 ? parseInt(time / 60) : "0" + parseInt(time / 60);
+  var s = parseInt(time % 60) > 9 ? parseInt(time % 60) : "0" + parseInt(time % 60);
+  return m + "'" + s + "'"
+}
+module.exports = {
+  translateTime: translateTime,
+  translateTimeD: translateTimeD
+}

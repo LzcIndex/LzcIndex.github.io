@@ -1,0 +1,64 @@
+/* components/Classification/ClassificationDetailed.wxss */
+.cfic-main{
+  width: 100vw;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  justify-content: space-around;
+}
+.line{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 15px;
+}
+ .lineleft, .lineright{
+   flex: 1;
+   height: 1px;
+   background: #999;
+ }
+ .line .sex{
+   margin: 0 15px;
+ }
+.cfic-detailed-msg{
+  width: 50%;
+  margin-right: 10px;
+}
+.cfic-detailed-msg view:nth-child(2){
+  font-size: 0.8em;
+  color: #9B9B9B;
+}
+.cfic-detailed{
+  display: flex;
+  align-items: center;
+  width: 46%;
+  box-sizing: border-box;
+  padding: 10px;
+  background: #F9F9FB;
+  margin: 1%;
+}
+.cfic-detailed-img{
+ flex: 1;
+  position: relative;
+}
+.cfic-detailed-img image{
+  position: absolute;
+  right: 10px;
+  bottom: -10px;
+  z-index: 2;
+}
+.cfic-detailed-img image:nth-child(1){
+  z-index: 1;
+  right: 15px;
+  bottom: -10px;
+}
+.cfic-detailed-img image:nth-child(2){
+  position: relative;
+  bottom: -10px;
+}
+.cfic-detailed-img image:nth-child(3){
+  z-index: 1;
+  right: 5px;
+  bottom: -10px;
+}

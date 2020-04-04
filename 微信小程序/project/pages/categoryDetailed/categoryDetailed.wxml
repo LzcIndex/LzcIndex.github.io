@@ -1,0 +1,4 @@
+<!--pages/categoryDetailed/categoryDetailed.wxml-->
+<view class="detailed">
+  <videoCard wx:for="{{ cateDetailedData }}" item="{{ item }}"></videoCard>
+</view>

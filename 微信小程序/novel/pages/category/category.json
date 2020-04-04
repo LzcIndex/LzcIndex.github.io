@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "Category":"../../components/Classification/ClassificationDetailed"
+  }
+}

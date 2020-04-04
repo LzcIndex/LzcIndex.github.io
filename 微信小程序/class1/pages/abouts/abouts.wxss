@@ -1,0 +1,4 @@
+/* pages/abouts/abouts.wxss */
+image{
+  width: 10vh;
+}

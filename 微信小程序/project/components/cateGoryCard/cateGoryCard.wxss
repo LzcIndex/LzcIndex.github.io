@@ -1,0 +1,24 @@
+/* components/cateGoryCard/cateGoryCard.wxss */
+.category-card{
+  width: 50vw;
+  flex: 1;
+  position: relative;
+}
+.category-card .cate-tab{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  color: white;
+}
+.category-card .cate-tab ::after{
+  content: "_";
+  color: white;
+  font-weight: 500;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2em;
+
+}

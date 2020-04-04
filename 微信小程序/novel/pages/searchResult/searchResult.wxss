@@ -1,0 +1,4 @@
+/* pages/searchResult/searchResult.wxss */
+.search-result{
+  padding:0 10px;
+}

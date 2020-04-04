@@ -1,0 +1,21 @@
+/* components/videoCard/videoCard.wxss */
+.card{
+  position: relative;
+}
+.card .text{
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  color: white;
+  font-size: 0.5em;
+  font-weight: 700;
+}
+.card .text view{
+  font-size: 1.8em;
+  
+}
+.card .text image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 5px;
+}

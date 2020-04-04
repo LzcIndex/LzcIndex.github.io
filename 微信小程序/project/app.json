@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/category/category",
+    "pages/search/search",
+    "pages/view/view",
+    "pages/searchResult/searchResult",
+    "pages/categoryDetailed/categoryDetailed"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "视频精选",
+    "navigationBarTextStyle": "white",
+   "onReachBottomDistance": 250
+  },
+  
+  "tabBar":{
+    "backgroundColor":"#000",
+    "selectedColor":"#fff",
+    "color":"#999",
+    "list":[
+      {
+        "pagePath":"pages/index/index",
+        "text":"推荐"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "频道"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

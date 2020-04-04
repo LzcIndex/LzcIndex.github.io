@@ -1,0 +1,37 @@
+/* pages/search/search.wxss */
+.search{
+  padding: 0 10px;
+  background: #1A1A1A;
+  height: 100vh;
+}
+.search-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #252525;
+  color: #7F7F7F;
+  padding: 5px 5px;
+  border-radius: 5px;
+}
+.search input{
+  flex: 1;
+}
+.hot-search-text{
+  color: #7F7F7F;
+  margin: 10px 0;
+  font-size: 0.8em;
+}
+.tags view{
+  display: inline-block;
+  margin: 5px;
+  padding: 8px;
+  color: white;
+  background: #262626;
+  border-radius: 3px;
+  font-size: 0.8em;
+}
+.history-search-text{
+  color: #7F7F7F;
+  margin: 10px 0;
+  font-size: 0.8em;
+}

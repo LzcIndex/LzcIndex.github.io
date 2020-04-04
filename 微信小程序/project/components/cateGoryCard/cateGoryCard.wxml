@@ -1,0 +1,7 @@
+<!--components/cateGoryCard/cateGoryCard.wxml-->
+<view class="category-card" bindtap="navgateToCategoryDetailed" data-category="{{ cate.cateid || cate.tab }}">
+    <image mode="widthFix" src="{{ cate.icon }}"></image>
+    <view class="cate-tab">
+        <text>{{ cate.catename }}</text>
+    </view>
+</view>

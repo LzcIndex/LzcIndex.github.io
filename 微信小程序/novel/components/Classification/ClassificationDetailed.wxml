@@ -1,0 +1,35 @@
+<!--components/Classification/ClassificationDetailed.wxml-->
+<wxs src="../../utils/translateImage.wxs" module="tools" />
+ <view class="line">
+      <view class="lineleft"></view>
+      <view class="sex">男生</view>
+      <view class="lineright"></view>
+    </view>
+<view class="cfic-main"> 
+    <view class="cfic-detailed" wx:for="{{ cfic.male }}">
+  <view class="cfic-detailed-msg">
+      <view>{{ item.name }}</view>
+      <view>{{ item.monthlyCount }}本</view>
+  </view>
+  <view class="cfic-detailed-img">
+    <image  wx:for="{{ item.bookCover }}" mode="widthFix" src="{{ tools.translateImage(item) }}"></image>
+  </view>
+</view>
+</view>
+
+ <view class="line">
+      <view class="lineleft"></view>
+      <view class="sex">女生</view>
+      <view class="lineright"></view>
+    </view>
+<view class="cfic-main"> 
+    <view class="cfic-detailed" wx:for="{{ cfic.female }}">
+  <view class="cfic-detailed-msg">
+      <view>{{ item.name }}</view>
+      <view>{{ item.monthlyCount }}本</view>
+  </view>
+  <view class="cfic-detailed-img">
+    <image  wx:for="{{ item.bookCover }}" mode="widthFix" src="{{ tools.translateImage(item) }}"></image>
+  </view>
+</view>
+</view>

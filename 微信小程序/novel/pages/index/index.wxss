@@ -1,0 +1,59 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+.weui-search-bar{
+  background: none;
+}
+.weui-search-bar label{
+  background: #EBEBF0;
+}
+.swiper-item{
+  border-radius: 5px;
+  margin: 0 5px;
+  overflow: hidden;
+}
+.nav{
+  display: flex;
+}
+.nav .ranking{
+  flex: 1;
+  text-align: center;
+}
+.nav .ranking image{
+  width: 30%;
+
+}
+.nav .classification{
+  flex: 1;
+  text-align: center;
+}
+.nav .classification image{
+  width: 30%;
+
+}
+.male-hot{
+  padding: 15px 10px;
+  box-sizing: border-box;
+}
+.male-hot .section-title{
+  font-weight: 700;
+  font-size: 1.2em;
+}

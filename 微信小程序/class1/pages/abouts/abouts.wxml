@@ -1,0 +1,5 @@
+<!--pages/abouts/abouts.wxml-->
+<text>{{ msg }}</text>
+<map longitude="{{ location.longitude }}" latitude="{{ location.latitude }}"></map>
+<image mode="widthFix" src="{{ userInFo.avatarUrl }}"></image>
+<text>{{ userInFo.nickName }}</text>

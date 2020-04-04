@@ -1,0 +1,65 @@
+/* pages/view/view.wxss */
+
+.player video {
+  width: 100%;
+}
+
+.player {
+  text-align: center;
+}
+
+.player .video-title {
+  font-weight: 600;
+}
+
+.player .dur {
+  color: #666;
+  font-size: 0.5em;
+  padding: 15px 0;
+}
+
+.player .introduce {
+  text-align: left;
+  color: #666;
+  font-size: 0.8em;
+  padding: 0 15px;
+}
+
+.player .relave-list {
+  text-align: left;
+  padding:15px; 
+}
+
+.player .relave-list .warp-drag-list {
+  overflow-x: auto;
+}
+
+.player .relave-list .warp-drag-list .drag-list {
+  widows: 100vw;
+  white-space: nowrap;
+}
+
+.player .relave-list .warp-drag-list .drag-list .drag-list-item {
+  position: relative;
+  width: 40vw;
+  display: inline-block;
+  margin: 5px;
+}
+.player .relave-list .warp-drag-list .drag-list .drag-list-item .relave-msg{
+  position: absolute;
+  left:0;
+  bottom: 5px;
+  padding-left:5px; 
+  color: white; 
+  font-size: 0.5em;
+}
+.player .relave-list .warp-drag-list .drag-list .drag-list-item .relave-msg view{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  white-space: normal;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+}

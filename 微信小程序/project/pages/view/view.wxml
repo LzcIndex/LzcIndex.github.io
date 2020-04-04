@@ -1,0 +1,22 @@
+
+<wxs src="../../utils/tools.wxs" module="tools" />
+<view class="player">
+  <video src="{{ videoDetail.content_video[0].progressive[1].https_url }}" controls></video>
+  <view class="video-title">{{ videoDetail.title }}</view>
+  <view class="dur">{{ "#" + videoDetail.cate[0] + '/' }}{{ tools.translateTimeD(videoDetail.content_video[0].duration) }}</view>
+  <view class="introduce">{{ videoDetail.intro }}</view>
+  <view class="relave-list" wx:for="{{ videoDetail.relate_video }}">
+    <text>{{ item.name }}</text>
+    <view class="warp-drag-list">
+        <view class="drag-list">
+            <view class="drag-list-item" wx:for="{{ item.list}}" bindtap="redirectToView" data-postid="{{ item.postid}}">
+              <image mode="widthFix" src="{{ item.image }}"></image>
+              <view class="relave-msg">
+              <text>{{ tools.translateTimeD(item.duration) }}</text>
+              <view>{{ item.title }}</view>
+              </view>
+            </view>
+        </view>
+    </view>
+  </view>
+</view>

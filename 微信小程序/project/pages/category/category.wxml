@@ -1,0 +1,4 @@
+<!--pages/category/category.wxml-->
+<view class="cate-list">
+    <cateGoryCard wx:for="{{ cateGoryData }}" wx:for-item="cate" cate="{{ cate }}"></cateGoryCard>
+</view>

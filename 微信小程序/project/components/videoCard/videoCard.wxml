@@ -1,0 +1,12 @@
+<!--components/videoCard/videoCard.wxml-->
+<wxs src="../../utils/tools.wxs" module="tools" />
+
+<view class="card" bindtap="navgateToView" data-postid="{{ item.postid }}">
+    <image mode="widthFix" src="{{ item.image }}"></image>
+    <view class="text">
+      <image src="../../assets/play.png"></image>
+      <text style="margin-right:6px" class="time">{{ tools.translateTime(item.duration) }}</text>
+      <text> {{ "#" + item.cates[0].catename   }}</text>
+      <view class="title">{{ item.title }}</view>
+    </view>
+</view>

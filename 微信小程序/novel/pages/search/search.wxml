@@ -1,0 +1,32 @@
+<!--pages/search/search.wxml-->
+<!--pages/search/search.wxml-->
+<view class="search">
+  <view class="search-input">
+    <view class="group">
+      <icon type="search" size="20" color="gray" />
+    </view>
+    <input confirm-type="search" bindconfirm="navgateToSearchResult" data-val="{{ inputValue }}" bindinput="bindKeyInput" placeholder="搜索精彩短片"></input>
+  </view>
+  <block wx:if="{{ !inputValue }}">
+      <view class="hot-search">
+      <view class="hot-search-text">热门搜索</view>
+      <view class="tags">
+        <view wx:for="{{ hotTags }}" bindtap="sendHotSearch" data-tag="{{ item }}">{{ item }}</view>
+      </view>
+  </view>
+   <view class="history">
+      <view class="history-search-text">搜索历史</view>
+      <view class="tags">
+        <view wx:for="{{ historyList }}" bindtap="sendHotSearch" data-tag="{{ item }}">{{ item}}</view>
+      </view>
+  </view>
+  </block>
+  <block wx:else>
+      <view class="sug-list" wx:for="{{ sugData }}" data-val="{{ item }}" bindtap="navgateToSearchResult">
+        <view class="list-icon">
+          <image mode="widthFix" src="/assets/list.png"></image>
+        </view>
+        <view class="list-text">{{ item }}</view>
+      </view>
+  </block>
+</view>

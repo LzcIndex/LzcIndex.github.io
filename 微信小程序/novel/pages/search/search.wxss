@@ -1,0 +1,53 @@
+/* pages/search/search.wxss */
+.search{
+  padding: 0 10px;
+}
+.search-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #EBEBF0;
+  color: #7F7F7F;
+  padding: 5px 5px;
+  border-radius: 5px;
+}
+.search input{
+  flex: 1;
+}
+.hot-search-text{
+  color: #6B6B6B;
+  margin: 10px 0;
+  font-size: 1.5em;
+}
+.tags view{
+  display: inline-block;
+  margin: 5px;
+  padding: 8px;
+  color: #A2A2A9;
+  background: #EBEBF0;
+  border-radius: 20px;
+  font-size: 0.8em;
+}
+.history-search-text{
+  color: #6B6B6B;
+  margin: 10px 0;
+  font-size: 1.5em;
+}
+.history .tags view{
+  display: block;
+  background: none;
+  border-radius: 0;
+  border-bottom: 1px solid #EBEBF0;
+}
+.sug-list{
+  display: flex;
+  align-items: center;
+  line-height: 2;
+}
+.sug-list .list-icon{
+  width: 5%;
+}
+.sug-list .list-text{
+  margin-left: 15px;
+  flex: 1
+}

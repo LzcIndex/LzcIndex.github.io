@@ -1,0 +1,24 @@
+var translateImage = function(str){
+  if (str){
+    var newStr = str.slice(str.indexOf('/agent/') + 7);
+    console.log(decodeURIComponent(newStr))
+    return decodeURIComponent(newStr)
+  }
+}
+
+var translateCount = function(count){
+    var num = 0;
+    if(count > 99999999){
+      num = parseInt(count/1000000000) + '亿'
+    }else if(count > 9999){
+      num = parseInt(count/10000) + '万'
+    }else{
+      num = count
+    }
+    return num
+}
+
+module.exports = {
+  translateImage: translateImage,
+  translateCount: translateCount,
+}
